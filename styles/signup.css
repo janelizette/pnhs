@@ -40,8 +40,10 @@ html {
 
 .header {
   background-color: var(--green);
-  color: var(--white);
+  width: 100vw;
   padding: var(--padding);
+  color: var(--white);
+  font-weight: 700;
 }
 
 .navbar {

@@ -22,7 +22,7 @@
     <div class="showNavbar">
       <div class="tab"></div>
       <a href="index.php" class="tab">Home</a>
-      <a href="login.php" class="tab">Login</a>
+      <a href="signin.php" class="tab">Login</a>
       <a href="signup.php" class="tab">Sign up</a>
       <a href="terms.php" class="tab">Terms and Conditions</a>
     </div>

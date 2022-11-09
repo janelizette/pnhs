@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="styles/signup.css">
+  <link rel="stylesheet" href="styles/signin.css">
   <link rel="icon" href="img/pnhs.png">
   <title>Sign Up</title>
 </head>
@@ -28,21 +28,22 @@
   </div>
 
   <div class="content">
-    <div class="greetings">
-      <h1>Hello!</h1>
-      <p>Sign up to continue, it is advisable to read the <b>Terms and Conditions</b> before proceeding.</p>
-    </div>
+    <div class="content">
+      <div class="greetings">
+        <h1>Welcome!</h1>
+        <p>Login to continue.</p>
+      </div>
 
-    <form action="" id="form">
-      <input type="text" placeholder="Username">
-      <input type="email" placeholder="Email">
-      <input type="password" placeholder="Password">
-      <input type="password" placeholder="Re-enter Password">
-      <input type="submit" id="submit" value="Confirm">
-    </form>
+      <form action="" id="form">
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
 
-    <div class="signin">
-      <p>Already a member? <a href="signin.php" id="signin"> Sign in</a></p>
+        <input type="submit" id="submit" value="Confirm">
+      </form>
+
+      <div class="signup">
+        <p>Not a member? <a href="signup.php" id="signup"> Sign up</a></p>
+      </div>
     </div>
 
   </div>
