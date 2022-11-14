@@ -6,12 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles/index.css">
   <link rel="icon" href="img/pnhs.png">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
   <title>Home</title>
 </head>
 
 <body>
+  <!-- Search abr-->
   <div class="bar-div" id="bar-div">
     <div class="bar">
       <button class="back"><img src="img/back.png" class="back-icon" id="back"></button>
@@ -48,12 +47,10 @@
       <a class="option" href="order.php"><img src="img/cart.png"><span>ORDER</span></a>
     </div>
   </div>
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="scripts/index.js"></script>
 </body>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   let nav = document.querySelector('.nav');
   let close = document.querySelector('.close')
   let navbar = document.querySelector('.showNavbar')
@@ -69,6 +66,7 @@
     navbar.classList.remove('show')
     nav.classList.remove('hide')
   }
-</script>
+</script> -->
+
 
 </html>

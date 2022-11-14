@@ -107,6 +107,7 @@ html {
   margin-left: 35px;
 }
 
+/* Search */
 .search {
   display: flex;
   align-items: center;
@@ -143,7 +144,7 @@ html {
   transition: top 0.5s ease-in-out;
 }
 
-.show {
+.showSearchBar {
   top: 0;
 }
 
@@ -224,9 +225,6 @@ html {
 }
 
 @media only screen and (max-width: 600px) {
-  .search {
-    right: 3%;
-  }
 }
 
 @media only screen and (max-width: 300px) {
@@ -246,12 +244,5 @@ html {
 
   .message {
     padding: 0 15px;
-  }
-
-  .search {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    right: 4%;
   }
 }

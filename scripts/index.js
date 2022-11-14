@@ -6,13 +6,28 @@ const targetDisplay = targetStyle.getPropertyValue("display");
 
 back.onclick = function () {
   if (targetDisplay === "flex") {
-    targetDiv.classList.remove("show");
+    targetDiv.classList.remove("showSearchBar");
   }
-  console.log(targetDisplay);
 };
 
 search.onclick = function () {
   if (targetDisplay === "flex") {
-    targetDiv.classList.add("show");
+    targetDiv.classList.add("showSearchBar");
   }
+};
+
+let nav = document.querySelector(".nav");
+let close = document.querySelector(".close");
+let navbar = document.querySelector(".showNavbar");
+
+nav.onclick = function () {
+  nav.classList.add("hide");
+  navbar.classList.add("show");
+  close.classList.remove("hide");
+};
+
+close.onclick = function () {
+  close.classList.add("hide");
+  navbar.classList.remove("show");
+  nav.classList.remove("hide");
 };
