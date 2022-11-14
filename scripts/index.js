@@ -16,5 +16,3 @@ search.onclick = function () {
     targetDiv.classList.add("show");
   }
 };
-
-// console.log(targetStyle.getPropertyValue("display"));
