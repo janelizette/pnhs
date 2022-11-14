@@ -168,7 +168,7 @@ button {
   }
 }
 
-@media only screen and (max-width: 300px) {
+@media only screen and (max-width: 320px) {
   .header {
     white-space: nowrap;
     overflow: hidden;
