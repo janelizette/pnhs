@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles/signin.css">
   <link rel="icon" href="img/pnhs.png">
-  <title>Sign Up</title>
+  <title>Sign In</title>
 </head>
 
 <body>
