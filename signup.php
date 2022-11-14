@@ -33,12 +33,17 @@
       <p>Sign up to continue, it is advisable to read the <b><a href="terms.php">Terms and Conditions</a></b> before proceeding.</p>
     </div>
 
-    <form action="" id="form">
-      <input type="text" placeholder="Username">
-      <input type="email" placeholder="Email">
-      <input type="password" placeholder="Password">
-      <input type="password" placeholder="Re-enter Password">
-      <input type="submit" id="submit" value="Confirm">
+    <form action="" id="form" method="post">
+      <input type="text" placeholder="Username" name="tb_username" maxlength="10" required>
+      <input type="email" placeholder="Email" name="tb_email" maxlength="128" required>
+      <input type="password" placeholder="Password" name="tb_password" maxlength="128" required>
+      <input type="password" placeholder="Re-enter Password" name="tb_passwordConfirm" maxlength="128" required>
+      <?php 
+      include("php/add.php")
+      ?>
+      <input type="submit" id="submit" value="Confirm" name="add_user">
+
+      
     </form>
 
     <div class="signin">

@@ -34,11 +34,15 @@
         <p>Login to continue.</p>
       </div>
 
-      <form action="" id="form">
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Password">
+      <form action="" id="form" method="post">
+        <input type="email" placeholder="Email" name="tb_email" maxlength="128" required>
+        <input type="password" placeholder="Password" name="tb_password" maxlength="128" required>
 
-        <input type="submit" id="submit" value="Confirm">
+        <?php
+        include("php/display.php");
+        ?>
+
+        <input type="submit" id="submit" value="Confirm" name="login_user">
       </form>
 
       <div class="signup">

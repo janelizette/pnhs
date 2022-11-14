@@ -9,6 +9,10 @@
   <title>Home</title>
 </head>
 
+<?php 
+include("php/display.php");
+?>
+
 <body>
   <!-- Search abr-->
   <div class="bar-div" id="bar-div">
@@ -41,7 +45,7 @@
       <a href="terms.php" class="tab">Terms and Conditions</a>
     </div>
     <div class="message">How can I help you today</div>
-    <div class="message welcome">Welcome back, User!</div>
+    <div class="message welcome">Welcome back, <?php echo "$username"; ?>!</div>
     <div class="options">
       <a class="option" href="menu.php"><img src="img/menu.png"><span>MENU</span></a>
       <a class="option" href="order.php"><img src="img/cart.png"><span>ORDER</span></a>
