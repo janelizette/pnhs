@@ -89,6 +89,10 @@ html {
   font-weight: 700;
 }
 
+.greetings > p > b > a {
+  color: var(--green);
+}
+
 #form {
   display: flex;
   flex-direction: column;

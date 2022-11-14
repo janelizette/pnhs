@@ -30,7 +30,7 @@
   <div class="content">
     <div class="greetings">
       <h1>Hello!</h1>
-      <p>Sign up to continue, it is advisable to read the <b>Terms and Conditions</b> before proceeding.</p>
+      <p>Sign up to continue, it is advisable to read the <b><a href="terms.php">Terms and Conditions</a></b> before proceeding.</p>
     </div>
 
     <form action="" id="form">

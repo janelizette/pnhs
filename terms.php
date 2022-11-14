@@ -56,9 +56,9 @@
           Our research group reserves the these Terms regularly. You will be deemed to have agreed to the amended Terms by your continued use of the website following the date on which the amended Terms are posted.
         </p>
 
-        <div class="button">
-          <button>I agree</button>
-        </div>
+      </div>
+      <div class="button">
+        <button>I agree</button>
       </div>
     </div>
 

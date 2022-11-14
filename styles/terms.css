@@ -3,6 +3,7 @@
 :root {
   --green: rgb(11, 128, 67);
   --black: rgb(0, 0, 0);
+  --gray: rgb(210, 210, 210);
   --white: rgb(255, 255, 255);
   --padding: 10px 15px;
 }
@@ -109,6 +110,8 @@ button {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  background-color: var(--gray);
+  margin: 0 3%;
 }
 
 .show {
@@ -161,7 +164,7 @@ button {
 
 @media only screen and (max-width: 600px) {
   .tnc > p {
-    margin: 1.5% 5%;
+    margin: 1.5% 2%;
   }
 }
 
