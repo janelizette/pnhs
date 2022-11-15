@@ -9,6 +9,10 @@
   <title>Menu</title>
 </head>
 
+<?php 
+include("php/display.php");
+?>
+
 <body>
   <!-- Search abr-->
   <div class="bar-div" id="bar-div">

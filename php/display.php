@@ -11,9 +11,12 @@ if (isset($_SESSION['email'])) {
 		$username = $row['username'];
 	}
 
-}/*else{
-	header("location:signin.php");
-}*/
+	$disabled = "";
+
+}else{
+	$username = "user";
+	$disabled = "disabled";
+}
 
 if (isset($_POST['login_user'])) {
 	$email = $_POST['tb_email'];
@@ -22,6 +25,7 @@ if (isset($_POST['login_user'])) {
 	$result = mysqli_query($con,$select);
 	$no_rows = mysqli_num_rows($result);
 	if ($no_rows==1){
+		$_SESSION['email'] = $_POST['tb_email'];
 		header("location:index.php");
 	}
 	else{
