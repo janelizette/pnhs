@@ -48,8 +48,12 @@ include("php/display.php");
     <div class="message">There's something for everyone!</div>
     <!-- <div class="message welcome">Welcome back, User!</div> -->
     <div class="options">
-      <a class="option" href="menu.php"><img src="img/menu.png"><span>MENU</span></a>
-      <a class="option" href="order.php"><img src="img/cart.png"><span>ORDER</span></a>
+      <a class="option" href=""><img src="img/drinks.png"><span>CATEGORY</span></a>
+      <a class="option" href=""><img src="img/drinks.png"><span>CATEGORY</span></a>
+      <a class="option" href=""><img src="img/drinks.png"><span>CATEGORY</span></a>
+      <a class="option" href=""><img src="img/drinks.png"><span>CATEGORY</span></a>
+      <a class="option" href=""><img src="img/drinks.png"><span>CATEGORY</span></a>
+      <a class="option" href=""><img src="img/drinks.png"><span>CATEGORY</span></a>
     </div>
   </div>
   <script src="scripts/index.js"></script>
