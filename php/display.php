@@ -18,6 +18,14 @@ if (isset($_SESSION['email'])) {
 	$disabled = "disabled";
 }
 
+if (isset($_SESSION['user_type'])) {
+	if ($_SESSION['user_type'] == "type_staff") {
+		$disabled = "disabled";
+	}else{
+		$disabled = "";
+	}
+}
+
 if (isset($_POST['login_user'])) {
 	$email = $_POST['tb_email'];
 	$password = $_POST['tb_password'];
@@ -26,7 +34,15 @@ if (isset($_POST['login_user'])) {
 	$no_rows = mysqli_num_rows($result);
 	if ($no_rows==1){
 		$_SESSION['email'] = $_POST['tb_email'];
-		header("location:index.php");
+		while ($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$_SESSION["user_type"] = $row['user_type'];
+			if ($_SESSION["user_type"] == "type_admin" or $_SESSION['user_type'] == "type_staff") {
+				header("location:staff-admin.php");
+			}
+			elseif ($_SESSION["user_type"] == "type_student") {
+				header("location:index.php");
+			}
+		}
 	}
 	else{
 		echo "
