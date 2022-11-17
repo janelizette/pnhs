@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2022 at 05:26 PM
+-- Generation Time: Nov 17, 2022 at 03:53 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -39,7 +39,8 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`username`, `email`, `password`, `user_type`) VALUES
-('Ria', 'ria@gmail.com', 'Ria123', 'type_student');
+('Ria', 'ria@gmail.com', 'Ria123', 'type_student'),
+('Staff', 'staff@gmail.com', '123', 'type_staff');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
