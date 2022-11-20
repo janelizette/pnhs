@@ -9,7 +9,7 @@
   <title>Menu</title>
 </head>
 
-<?php 
+<?php
 include("php/display.php");
 ?>
 
@@ -46,14 +46,14 @@ include("php/display.php");
       <a href="terms.php" class="tab">Terms and Conditions</a>
     </div>
     <div class="message">There's something for everyone!</div>
-    <!-- <div class="message welcome">Welcome back, User!</div> -->
+
     <div class="options">
-      <a class="option" href=""><img src="img/drinks.png"><span>CATEGORY</span></a>
-      <a class="option" href=""><img src="img/drinks.png"><span>CATEGORY</span></a>
-      <a class="option" href=""><img src="img/drinks.png"><span>CATEGORY</span></a>
-      <a class="option" href=""><img src="img/drinks.png"><span>CATEGORY</span></a>
-      <a class="option" href=""><img src="img/drinks.png"><span>CATEGORY</span></a>
-      <a class="option" href=""><img src="img/drinks.png"><span>CATEGORY</span></a>
+      <a class="option" href=""><img src="img/coffee-cup.png"><span>Coffee</span></a>
+      <a class="option" href=""><img src="img/burger.png"><span>Burgers</span></a>
+      <a class="option" href=""><img src="img/drinks.png"><span>Drinks</span></a>
+      <a class="option" href=""><img src="img/rice.png"><span>Rice Meals</span></a>
+      <a class="option" href=""><img src="img/snack.png"><span>Snacks</span></a>
+      <a class="option" href=""><img src="img/dessert.png"><span>Dessert</span></a>
     </div>
   </div>
   <script src="scripts/index.js"></script>

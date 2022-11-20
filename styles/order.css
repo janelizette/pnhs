@@ -39,6 +39,11 @@ html {
   text-decoration: none;
 }
 
+.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
 .header {
   background-color: var(--green);
   width: 100vw;
@@ -50,7 +55,9 @@ html {
 .content {
   display: flex;
   flex-direction: column;
+  width: 100%;
   background-color: whitesmoke;
+  height: 100vh;
 }
 
 .navbar {
@@ -175,7 +182,27 @@ html {
   align-items: center;
 }
 
-.message {
+.back-menu {
+  background: #a5a5a5;
+  display: flex;
+  align-items: center;
+  padding: 1.5%;
+}
+
+.back-menu > a {
+  display: flex;
+  align-items: center;
+}
+
+.back-menu-icon {
+  width: 20px;
+  filter: invert(49%) sepia(13%) saturate(3631%) hue-rotate(186deg)
+    brightness(82%) contrast(84%);
+  margin: auto 0;
+  margin-right: 2vw;
+}
+
+.title {
   padding: var(--padding);
   width: 100%;
   margin-top: 25px;
@@ -184,46 +211,83 @@ html {
   text-align: center;
 }
 
-.welcome {
-  margin-top: 0px;
-  font-weight: 400;
-  font-size: 1em;
+.items {
+  display: flex;
+  justify-content: space-between;
+  padding: 2% 10%;
+  align-items: flex-start;
 }
 
-.options {
-  width: 100%;
-  margin: 25px 0;
+.action {
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+}
+
+.delete {
+  margin-right: 10px;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.option {
+.dlt-btn {
+  border: none;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 125px;
-  border-radius: 10px;
-  flex-shrink: 0;
-  margin: var(--padding);
-  padding: 10px;
-  background-color: whitesmoke;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  transition: 0.3s;
 }
 
-.option:hover {
-  box-shadow: 0px 0px 20px 1px rgba(0, 0, 255, 0.2);
+.dlt-icon {
+  width: 15px;
 }
 
-.option img {
-  width: 100%;
+.quantity {
+  display: flex;
+  align-items: center;
 }
 
-.option span {
-  margin-top: 10px;
+.quantity > p {
+  margin: 0 5px;
+}
+
+.minus-btn,
+.plus-btn {
+  border: none;
+  background-color: #ed7d31;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.minus-icon,
+.plus-icon {
+  width: 10px;
+  filter: invert(100%);
+}
+
+.item-name {
+  font-weight: 700;
+}
+
+.total {
+  display: flex;
+  padding: 0 10%;
+  justify-content: space-between;
+  margin: 5% 0;
+}
+
+.checkout-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.checkout-btn > button {
+  background-color: #ffc000;
+  border: 1px solid #bc8c00;
+  border-radius: 5px;
+  padding: 1.5% 5%;
 }
 
 @media only screen and (max-width: 600px) {
@@ -238,7 +302,6 @@ html {
 
   .options {
     flex-direction: column;
-    margin: 25px 0;
   }
 
   .option {
@@ -247,9 +310,5 @@ html {
 
   .message {
     padding: 0 15px;
-  }
-
-  .content {
-    height: 100%;
   }
 }
