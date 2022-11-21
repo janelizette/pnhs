@@ -11,8 +11,6 @@ if (isset($_SESSION['email'])) {
 		$username = $row['username'];
 	}
 
-}else{
-	header("Location:welcome.php");
 }
 
 if (isset($_SESSION['user_type'])) {

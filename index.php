@@ -11,6 +11,7 @@
 
 <?php
 include("php/display.php");
+include("php/displayWelcome.php");
 ?>
 
 <body>
