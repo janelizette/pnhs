@@ -35,7 +35,7 @@
       </div>
 
       <form action="" id="form" method="post">
-        <input type="email" placeholder="Email" name="tb_email" maxlength="128" required>
+        <input type="email" placeholder="Email" name="tb_email" maxlength="128" pattern="^[a-zA-Z0-9._%+-]+@(depedparanaquecity.com)" required>
         <input type="password" placeholder="Password" name="tb_password" maxlength="128" required>
 
         <?php
