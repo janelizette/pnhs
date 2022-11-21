@@ -11,11 +11,8 @@ if (isset($_SESSION['email'])) {
 		$username = $row['username'];
 	}
 
-	$disabled = "";
-
 }else{
-	$username = "user";
-	$disabled = "disabled";
+	header("Location:welcome.php");
 }
 
 if (isset($_SESSION['user_type'])) {

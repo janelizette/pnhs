@@ -47,8 +47,8 @@ include("php/display.php");
     <div class="message">How can I help you today?</div>
     <div class="message welcome">Welcome back, <?php echo "$username"; ?>!</div>
     <div class="options">
-      <a class="<?php echo "option $disabled"; ?>" href="menu.php"><img src="img/menu.png"><span>MENU</span></a>
-      <a class="<?php echo "option $disabled"; ?>" href="order.php"><img src="img/cart.png"><span>ORDER</span></a>
+      <a class="option" href="menu.php"><img src="img/menu.png"><span>MENU</span></a>
+      <a class="option" href="order.php"><img src="img/cart.png"><span>ORDER</span></a>
     </div>
   </div>
   <script src="scripts/index.js"></script>
