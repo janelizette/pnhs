@@ -60,10 +60,12 @@ include("php/display.php");
             </button>
           </div>
 
-          <div class="quantity">
-            <button class="minus-btn"><img src="img/minus.png" class="minus-icon"></button>
-            <p>5</p>
-            <button class="plus-btn"><img src="img/plus.png" class="plus-icon"></button>
+          <div class="quantity-div">
+            <button class="minus-btn" onclick="minus()"><img src="img/minus.png" class="minus-icon"></button>
+            <p>
+              <input type="number" id="quantity" value="5" step="1">
+            </p>
+            <button class="plus-btn" onclick="plus()"><img src="img/plus.png" class="plus-icon"></button>
           </div>
         </div>
 
@@ -91,7 +93,9 @@ include("php/display.php");
 
     </div>
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script src="scripts/index.js"></script>
+  <script src="scripts/order.js"></script>
 </body>
 
 </html>
