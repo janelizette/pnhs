@@ -74,7 +74,11 @@ include("php/display.php");
       <div class="quantity">
         <div class="qty">
           Add to my cart <BR>
-          2<BR>
+          <div class="quantity-div">
+            <button class="minus-btn" onclick="minus()"><img src="img/minus.png" class="minus-icon"></button>
+            <input type="number" id="quantity" value="5" step="1">
+            <button class="plus-btn" onclick="plus()"><img src="img/plus.png" class="plus-icon"></button>
+          </div>
           PHP 60
         </div>
         <input type="submit" id="submit" value="Confirm" name="add_itemorder">

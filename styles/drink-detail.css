@@ -273,6 +273,38 @@ html {
   border: 2px solid white;
   padding: 0 20px;
   width: 100%;
+  text-align: center;
+}
+
+.quantity-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.minus-btn,
+.plus-btn {
+  border: none;
+  background-color: #ed7d31;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.minus-icon,
+.plus-icon {
+  width: 10px;
+  filter: invert(100%);
+}
+
+#quantity{
+  width: 35px;
+  background-color: transparent;
+  border: none;
+  text-align: center;
 }
 
 #submit{
