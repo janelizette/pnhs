@@ -61,7 +61,7 @@ include("php/display.php");
       <div class="caption">Customize your order</div>
     </div>
 
-    <form class="variation-quantity" action="" method="post">
+    <form class="variation-quantity" action="order.php" method="post">
       <div class="variation">
         <div class="hot-cold">
           hot-cold
@@ -81,7 +81,7 @@ include("php/display.php");
           </div>
           PHP 60
         </div>
-        <input type="submit" id="submit" value="Confirm" name="add_itemorder">
+        <button type="submit" id="submit" name="add_itemorder">CONFIRM</button>
       </div>
     </form>
 

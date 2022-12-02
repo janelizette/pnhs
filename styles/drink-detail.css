@@ -234,14 +234,13 @@ html {
 
 .variation-quantity{
   display: flex;
-  background-color: blue;
+  background-color: #4472C4;
   width: 100vw;
 }
 
 .variation{
   display: flex;
   flex-wrap: wrap;
-  background-color: pink;
   width: 50%;
 }
 
@@ -261,7 +260,6 @@ html {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: yellow;
   width: 50%;
   padding: 10px;
 }
