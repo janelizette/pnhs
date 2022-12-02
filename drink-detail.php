@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="styles/menu.css">
+  <link rel="stylesheet" href="styles/drink-detail.css">
   <link rel="icon" href="img/pnhs.png">
-  <title>Menu</title>
+  <title>Coffee</title>
 </head>
 
 <?php
@@ -14,7 +14,7 @@ include("php/display.php");
 ?>
 
 <body>
-  <!-- Search abr-->
+  <!-- Search bar-->
   <div class="bar-div" id="bar-div">
     <div class="bar">
       <button class="back"><img src="img/back.png" class="back-icon" id="back"></button>
@@ -25,7 +25,6 @@ include("php/display.php");
   <div class="header">
     PARAÑAQUE NATIONAL HIGH SCHOOL - MAIN - Home of the Gentle Warriors
   </div>
-
   <div class="content">
     <div class="navbar">
       <img src="img/navigation.png" class="nav-icon nav">
@@ -38,6 +37,7 @@ include("php/display.php");
         </button>
       </div>
     </div>
+
     <div class="showNavbar">
       <div class="tab"></div>
       <a href="index.php" class="tab">Home</a>
@@ -45,18 +45,46 @@ include("php/display.php");
       <a href="signup.php" class="tab">Sign up</a>
       <a href="terms.php" class="tab">Terms and Conditions</a>
     </div>
-    <div class="message">There's something for everyone!</div>
 
-    <div class="options">
-      <a class="option" href="coffee-options.php"><img src="img/coffee-cup.png"><span>Coffee</span></a>
-      <a class="option" href=""><img src="img/burger.png"><span>Burgers</span></a>
-      <a class="option" href=""><img src="img/drinks.png"><span>Drinks</span></a>
-      <a class="option" href=""><img src="img/rice.png"><span>Rice Meals</span></a>
-      <a class="option" href=""><img src="img/snack.png"><span>Snacks</span></a>
-      <a class="option" href=""><img src="img/dessert.png"><span>Dessert</span></a>
+    <div class="back-menu">
+      <a href="menu.php"><img src="img/left.png" class="back-menu-icon"> Back to menu </a>
+      <a href="order.php"> View Cart <img src="img/cart.png" class="back-menu-icon cart"></a>
     </div>
+
+    <div class="item">
+      <img src="img/coffee-cup.png">
+      <span>Cappuccino</span>
+      <span>PHP 30</span>
+    </div>
+
+    <div class="details">
+      <div class="caption">Customize your order</div>
+    </div>
+
+    <form class="variation-quantity" action="" method="post">
+      <div class="variation">
+        <div class="hot-cold">
+          hot-cold
+        </div>
+        <div class="size">
+          medium large
+        </div>
+      </div>
+
+      <div class="quantity">
+        <div class="qty">
+          Add to my cart <BR>
+          2<BR>
+          PHP 60
+        </div>
+        <input type="submit" id="submit" value="Confirm" name="add_itemorder">
+      </div>
+    </form>
+
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script src="scripts/index.js"></script>
+  <script src="scripts/order.js"></script>
 </body>
 
 </html>
