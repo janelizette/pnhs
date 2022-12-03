@@ -75,9 +75,9 @@ include("php/display.php");
         <div class="qty">
           Add to my cart <BR>
           <div class="quantity-div">
-            <button class="minus-btn" onclick="minus()"><img src="img/minus.png" class="minus-icon"></button>
+            <button class="minus-btn" onclick="minus()" type="button"><img src="img/minus.png" class="minus-icon"></button>
             <input type="number" id="quantity" value="5" step="1">
-            <button class="plus-btn" onclick="plus()"><img src="img/plus.png" class="plus-icon"></button>
+            <button class="plus-btn" onclick="plus()" type="button"><img src="img/plus.png" class="plus-icon"></button>
           </div>
           PHP 60
         </div>
