@@ -55,10 +55,10 @@ include("php/display.php");
     </div>
 
     <div class="options">
-      <a class="option" href="drink-detail.php"><img src="img/coffee-cup.png"><span>Cappuccino</span></a>
-      <a class="option" href="drink-detail.php"><img src="img/coffee-cup.png"><span>Mocha</span></a>
-      <a class="option" href="drink-detail.php"><img src="img/coffee-cup.png"><span>Vanilla</span></a>
-      <a class="option" href="drink-detail.php"><img src="img/coffee-cup.png"><span>Choco</span></a>
+      <a class="option" href="detail.php"><img src="img/coffee-cup.png"><span>Cappuccino</span></a>
+      <a class="option" href="detail.php"><img src="img/coffee-cup.png"><span>Mocha</span></a>
+      <a class="option" href="detail.php"><img src="img/coffee-cup.png"><span>Vanilla</span></a>
+      <a class="option" href="detail.php"><img src="img/coffee-cup.png"><span>Choco</span></a>
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>

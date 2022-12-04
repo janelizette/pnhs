@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="styles/drink-detail.css">
+  <link rel="stylesheet" href="styles/detail.css">
   <link rel="icon" href="img/pnhs.png">
   <title>Coffee</title>
 </head>
