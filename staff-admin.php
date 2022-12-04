@@ -4,13 +4,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="styles/staff-admin.css">
+  <link rel="stylesheet" href="styles/index.css">
   <link rel="icon" href="img/pnhs.png">
   <title>Home</title>
 </head>
 
-<?php 
+<?php
 include("php/display.php");
+include("php/displayWelcome.php");
 ?>
 
 <body>
@@ -39,16 +40,21 @@ include("php/display.php");
     </div>
     <div class="showNavbar">
       <div class="tab"></div>
-      <a href="staff-admin.php" class="tab">Home</a>
-      <a href="accounts.php" class='<?php echo "tab $disabled"; ?>'>Accounts</a>
-      <a href="signin.php" class="tab">Login</a>
-      <a href="signup.php" class="tab">Sign up</a>
+
+      <a href="index.php" class="tab">Home</a>
+      <a href="pending-orders.php" class="tab">Pending Orders</a>
+      <a href="ready-orders.php" class="tab">Ready Orders</a>
+      <a href="completed-orders.php" class="tab">Completed Orders</a>
+      <a href="add-item.php" class="tab">Add Item</a>
       <a href="terms.php" class="tab">Terms and Conditions</a>
+
     </div>
-    <div class="message">Welcome back, <BR><?php echo "$username"; ?>!</div>
+    <div class="message">How can I help you today?</div>
+    <div class="message welcome">Welcome back, <?php echo "$username"; ?>!</div>
     <div class="options">
-      <a class="option" href="items.php"><img src="img/items.png"><span>ITEMS</span></a>
-      <a class="option" href="order-list.php"><img src="img/orders.png"><span>ORDERS</span></a>
+
+      <a class="option" href="menu.php"><img src="img/menu.png"><span>EDIT MENU</span></a>
+      <a class="option" href="order-status.php"><img src="img/cart.png"><span>ORDERS</span></a>
     </div>
   </div>
   <script src="scripts/index.js"></script>
