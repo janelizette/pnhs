@@ -4,18 +4,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="styles/index.css">
+  <link rel="stylesheet" href="styles/order-status.css">
   <link rel="icon" href="img/pnhs.png">
   <title>Home</title>
 </head>
 
 <?php
 include("php/display.php");
-include("php/displayWelcome.php");
 ?>
 
 <body>
-  <!-- Search abr-->
+  <!-- Search bar-->
   <div class="bar-div" id="bar-div">
     <div class="bar">
       <button class="back"><img src="img/back.png" class="back-icon" id="back"></button>
@@ -40,35 +39,28 @@ include("php/displayWelcome.php");
     </div>
     <div class="showNavbar">
       <div class="tab"></div>
-      <!-- <a href="index.php" class="tab">Home</a>
-      <a href="signin.php" class="tab">Login</a>
-      <a href="signup.php" class="tab">Sign up</a>
-      <a href="terms.php" class="tab">Terms and Conditions</a> -->
-
-
-      <!-- FOR ADMIN START -->
       <a href="index.php" class="tab">Home</a>
       <a href="pending-orders.php" class="tab">Pending Orders</a>
       <a href="ready-orders.php" class="tab">Ready Orders</a>
       <a href="completed-orders.php" class="tab">Completed Orders</a>
       <a href="add-item.php" class="tab">Add Item</a>
       <a href="terms.php" class="tab">Terms and Conditions</a>
-      <!-- END -->
-
     </div>
-    <div class="message">How can I help you today?</div>
-    <div class="message welcome">Welcome back, <?php echo "$username"; ?>!</div>
-    <div class="options">
-      <!-- <a class="option" href="menu.php"><img src="img/menu.png"><span>MENU</span></a> -->
-      <!-- <a class="option" href="order.php"><img src="img/cart.png"><span>ORDERS</span></a> -->
 
-      <!-- FOR ADMIN START -->
-      <a class="option" href="menu.php"><img src="img/menu.png"><span>EDIT MENU</span></a>
-      <a class="option" href="order-status.php"><img src="img/cart.png"><span>ORDERS</span></a>
-      <!-- END -->
+    <div class="back-home">
+      <a href="index.php"><img src="img/left.png" class="back-home-icon"> Home </a>
     </div>
+
+    <div class="buttons">
+      <button onclick="window.location.href='pending-orders.php'">Pending Orders</button>
+      <button onclick="window.location.href='ready-orders.php'">Ready Orders</button>
+      <button onclick="window.location.href='completed-orders.php'">Completed Orders</button>
+    </div>
+
   </div>
+  <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   <script src="scripts/index.js"></script>
+  <script src="scripts/order.js"></script>
 </body>
 
 </html>
