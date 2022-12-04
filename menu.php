@@ -49,11 +49,11 @@ include("php/display.php");
 
     <div class="options">
       <a class="option" href="coffee-options.php"><img src="img/coffee-cup.png"><span>Coffee</span></a>
-      <a class="option" href=""><img src="img/burger.png"><span>Burgers</span></a>
-      <a class="option" href=""><img src="img/drinks.png"><span>Drinks</span></a>
-      <a class="option" href=""><img src="img/rice.png"><span>Rice Meals</span></a>
-      <a class="option" href=""><img src="img/snack.png"><span>Snacks</span></a>
-      <a class="option" href=""><img src="img/dessert.png"><span>Dessert</span></a>
+      <a class="option" href="detail.php"><img src="img/burger.png"><span>Burgers</span></a>
+      <a class="option" href="detail.php"><img src="img/drinks.png"><span>Drinks</span></a>
+      <a class="option" href="detail.php"><img src="img/rice.png"><span>Rice Meals</span></a>
+      <a class="option" href="detail.php"><img src="img/snack.png"><span>Snacks</span></a>
+      <a class="option" href="detail.php"><img src="img/dessert.png"><span>Dessert</span></a>
     </div>
   </div>
   <script src="scripts/index.js"></script>
