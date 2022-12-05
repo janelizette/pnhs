@@ -89,11 +89,6 @@ html {
   padding: var(--padding);
 }
 
-.disabled {
-  color: darkgray;
-  pointer-events: none;
-}
-
 .nav-icon {
   width: 20px;
   z-index: 2;
@@ -182,46 +177,18 @@ html {
   align-items: center;
 }
 
-.message {
-  padding: var(--padding);
-  width: 100%;
-  margin-top: 50px;
-  font-weight: 700;
-  font-size: 1.5em;
-}
-
-.options {
-  width: 100%;
-  margin-top: 25px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.option {
+.container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 125px;
-  border-radius: 10px;
-  flex-shrink: 0;
-  margin: var(--padding);
-  padding: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  transition: 0.3s;
-}
-
-.option:hover {
-  box-shadow: 0px 0px 20px 1px rgba(0, 0, 255, 0.2);
-}
-
-.option img {
   width: 100%;
+  background-color: whitesmoke;
 }
 
-.option span {
-  margin-top: 10px;
+input, select{
+  width: 50%;
+  margin: 0 0 10px 0;
 }
 
 @media only screen and (max-width: 600px) {
