@@ -40,32 +40,32 @@ include("php/displayWelcome.php");
     </div>
     <div class="showNavbar">
       <div class="tab"></div>
-      <!-- <a href="index.php" class="tab">Home</a>
+      <a href="index.php" class="tab">Home</a>
       <a href="signin.php" class="tab">Login</a>
       <a href="signup.php" class="tab">Sign up</a>
-      <a href="terms.php" class="tab">Terms and Conditions</a> -->
+      <a href="terms.php" class="tab">Terms and Conditions</a> 
 
 
       <!-- FOR ADMIN START -->
-      <a href="index.php" class="tab">Home</a>
+      <!-- <a href="index.php" class="tab">Home</a>
       <a href="pending-orders.php" class="tab">Pending Orders</a>
       <a href="ready-orders.php" class="tab">Ready Orders</a>
       <a href="completed-orders.php" class="tab">Completed Orders</a>
       <a href="add-item.php" class="tab">Add Item</a>
-      <a href="terms.php" class="tab">Terms and Conditions</a>
+      <a href="terms.php" class="tab">Terms and Conditions</a>-->
       <!-- END -->
 
     </div>
     <div class="message">How can I help you today?</div>
     <div class="message welcome">Welcome back, <?php echo "$username"; ?>!</div>
     <div class="options">
-      <!-- <a class="option" href="menu.php"><img src="img/menu.png"><span>MENU</span></a> -->
-      <!-- <a class="option" href="order.php"><img src="img/cart.png"><span>ORDERS</span></a> -->
-
       <!-- FOR ADMIN START -->
-      <a class="option" href="menu.php"><img src="img/menu.png"><span>EDIT MENU</span></a>
-      <a class="option" href="order-status.php"><img src="img/cart.png"><span>ORDERS</span></a>
+      <a class="option" href="menu.php"><img src="img/menu.png"><span>MENU</span></a>
+      <a class="option" href="order.php"><img src="img/cart.png"><span>ORDERS</span></a>
       <!-- END -->
+
+      <!-- <a class="option" href="menu.php"><img src="img/menu.png"><span>EDIT MENU</span></a> -->
+      <!-- <a class="option" href="order-status.php"><img src="img/cart.png"><span>ORDERS</span></a> -->
     </div>
   </div>
   <script src="scripts/index.js"></script>
