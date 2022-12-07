@@ -15,9 +15,11 @@ if (isset($_SESSION['email'])) {
 
 if (isset($_SESSION['user_type'])) {
 	if ($_SESSION['user_type'] == "type_staff") {
-		$disabled = "disabled";
+		$staff_visibility = "visible";
+		$stud_visibility = "hidden";
 	}else{
-		$disabled = "";
+		$staff_visibility = "hidden";
+		$stud_visibility = "visible";		
 	}
 }
 
@@ -31,7 +33,7 @@ if (isset($_POST['login_user'])) {
 		$_SESSION['email'] = $_POST['tb_email'];
 		while ($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
 			$_SESSION["user_type"] = $row['user_type'];
-			if ($_SESSION["user_type"] == "type_admin" or $_SESSION['user_type'] == "type_staff") {
+			if ($_SESSION['user_type'] == "type_staff") {
 				header("location:staff-admin.php");
 			}
 			elseif ($_SESSION["user_type"] == "type_student") {
