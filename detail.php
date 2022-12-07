@@ -11,6 +11,26 @@
 
 <?php
 include("php/display.php");
+include("php/displayWelcome.php");
+
+if (isset($_GET['item_no'])) {
+  $item_no = $_GET['item_no'];
+  $query="SELECT * FROM tbl_item WHERE item_no = '$item_no';";
+  $result=mysqli_query($con, $query);
+  $title_rows=mysqli_num_rows($result);
+  if ($title_rows != 0) {
+    while ($row=mysqli_fetch_array($result,MYSQLI_ASSOC))
+    {
+      $item_no=$row['item_no'];
+      $item_name=$row['item_name'];
+      $item_prc=$row['item_prc'];
+      $item_img=$row['item_img'];
+    }
+  }
+}else{
+  header("location:menu.php");
+}
+
 ?>
 
 <body>
@@ -52,9 +72,15 @@ include("php/display.php");
     </div>
 
     <div class="item">
-      <img src="img/coffee-cup.png">
-      <span>Cappuccino</span>
-      <span>PHP 30</span>
+      <?php
+      print "
+            <img src='uploads/$item_img'>
+            <span>$item_name</span>
+            <span>PHP $item_prc.00</span>
+            <input type='hidden' id='prc' value='$item_prc'>
+            ";
+      ?>
+      
     </div>
 
     <div class="details">
@@ -76,10 +102,14 @@ include("php/display.php");
           Add to my cart <BR>
           <div class="quantity-div">
             <button class="minus-btn" onclick="minus()" type="button"><img src="img/minus.png" class="minus-icon"></button>
-            <input type="number" id="quantity" value="5" step="1">
+            <input type="number" id="quantity" value="1" step="1" min="1">
             <button class="plus-btn" onclick="plus()" type="button"><img src="img/plus.png" class="plus-icon"></button>
           </div>
-          PHP 60
+          <?php
+          print "
+                <span id='total'>PHP $item_prc</span>
+                ";
+          ?>
         </div>
         <button type="submit" id="submit" name="add_itemorder">CONFIRM</button>
       </div>
