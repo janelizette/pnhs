@@ -39,7 +39,7 @@
       <input type="password" placeholder="Password" name="tb_password" maxlength="128" required>
       <input type="password" placeholder="Re-enter Password" name="tb_passwordConfirm" maxlength="128" required>
       <?php 
-      include("php/add.php")
+      include("php/add.php");
       ?>
       <input type="submit" id="submit" value="Confirm" name="add_user">
 
