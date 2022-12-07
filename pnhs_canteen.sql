@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2022 at 03:45 PM
+-- Generation Time: Dec 07, 2022 at 07:53 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -47,6 +47,17 @@ CREATE TABLE `tbl_item` (
   `item_img` text NOT NULL,
   `item_cat` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_item`
+--
+
+INSERT INTO `tbl_item` (`item_no`, `item_name`, `item_prc`, `item_img`, `item_cat`) VALUES
+(1, 'Coffee', 80, 'img-Capture.PNG', 'Coffee'),
+(2, 'Coffee', 80, 'img-Capture.PNG', 'Coffee'),
+(3, 'Coffee', 80, 'img-Capture.PNG', 'Coffee'),
+(4, 'Coffee', 80, 'img-Capture.PNG', 'Coffee'),
+(5, 'Cappuccino', 30, 'img-Capture.PNG', 'Coffee');
 
 -- --------------------------------------------------------
 
@@ -125,7 +136,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_item`
 --
 ALTER TABLE `tbl_item`
-  MODIFY `item_no` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `item_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_order`
