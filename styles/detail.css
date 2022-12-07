@@ -314,6 +314,16 @@ html {
   padding: 5px 15px;
   border: 0;
   border-radius: 3px;
+} 
+
+.visible{
+  visibility: visible;
+  position: relative;
+}
+
+.hidden{
+  visibility: hidden;
+  position: absolute;
 }
 
 @media only screen and (max-width: 600px) {
