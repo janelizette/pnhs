@@ -11,6 +11,7 @@
 
 <?php
 include("php/display.php");
+include("php/displayWelcome.php");
 ?>
 
 <body>
@@ -38,13 +39,29 @@ include("php/display.php");
         </button>
       </div>
     </div>
+
     <div class="showNavbar">
       <div class="tab"></div>
-      <a href="index.php" class="tab">Home</a>
-      <a href="signin.php" class="tab">Login</a>
-      <a href="signup.php" class="tab">Sign up</a>
-      <a href="terms.php" class="tab">Terms and Conditions</a>
+
+      <!-- FOR STUDENT -->
+      <a href="index.php" class="tab <?php echo $stud_visibility;?>">Home</a>
+      <a href="signin.php" class="tab <?php echo $stud_visibility;?>">Login</a>
+      <a href="signup.php" class="tab <?php echo $stud_visibility;?>">Sign up</a>
+      <a href="terms.php" class="tab <?php echo $stud_visibility;?>">Terms and Conditions</a>
+      <!-- END OF STUDENT -->
+
+      <!-- FOR STAFF -->
+      <a href="staff-admin.php" class="tab <?php echo $staff_visibility;?>">Home</a>
+      <a href="pending-orders.php" class="tab <?php echo $staff_visibility;?>">Pending Orders</a>
+      <a href="ready-orders.php" class="tab <?php echo $staff_visibility;?>">Ready Orders</a>
+      <a href="completed-orders.php" class="tab <?php echo $staff_visibility;?>">Completed Orders</a>
+      <a href="add-item.php" class="tab <?php echo $staff_visibility;?>">Add Item</a>
+      <a href="terms.php" class="tab <?php echo $staff_visibility;?>">Terms and Conditions</a>
+      <!-- END OF STAFF -->
+
     </div>
+    
+
     <div class="message">There's something for everyone!</div>
 
     <div class="options">
