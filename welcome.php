@@ -9,6 +9,17 @@
   <title>Sign In</title>
 </head>
 
+<?php
+session_start();
+if (isset($_SESSION['user_type'])) {
+  if ($_SESSION['user_type'] == "type_staff") {
+    header("location:staff-admin.php");
+  }else{
+    header("location:index.php");
+  }
+}
+?>
+
 <body>
   <div class="header">
     PARAÑAQUE NATIONAL HIGH SCHOOL - MAIN - Home of the Gentle Warriors
