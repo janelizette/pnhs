@@ -41,7 +41,7 @@ include("php/displayWelcome.php");
     <div class="showNavbar">
       <div class="tab"></div>
 
-      <a href="index.php" class="tab">Home</a>
+      <a href="staff-admin.php" class="tab">Home</a>
       <a href="pending-orders.php" class="tab">Pending Orders</a>
       <a href="ready-orders.php" class="tab">Ready Orders</a>
       <a href="completed-orders.php" class="tab">Completed Orders</a>
