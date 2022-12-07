@@ -66,7 +66,8 @@ include("php/displayWelcome.php")
     </div>
 
     <div class="cart">
-      <h1 class="title">Say "YES" to your craving and tap to order now!</h1>
+      <h1 class="title <?php echo $staff_visibility;?>">Press EDIT then SELECT.</h1>
+      <h1 class="title <?php echo $stud_visibility;?>">Say "YES" to your craving and tap to order now!</h1>
     </div>
 
     <div class="options">
