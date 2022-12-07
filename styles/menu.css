@@ -226,6 +226,16 @@ html {
   margin-top: 10px;
 }
 
+.visible{
+  visibility: visible;
+  position: relative;
+}
+
+.hidden{
+  visibility: hidden;
+  position: absolute;
+}
+
 @media only screen and (max-width: 600px) {
 }
 
