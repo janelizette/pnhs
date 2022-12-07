@@ -243,14 +243,23 @@ html {
 }
 
 .option img {
-  width: 100%;
+  width: 103px;
+  height: 103px;
 }
 
 .option span {
-  margin-top: 10px;
   text-align: center;
 }
 
+.visible{
+  visibility: visible;
+  position: relative;
+}
+
+.hidden{
+  visibility: hidden;
+  position: absolute;
+}
 
 @media only screen and (max-width: 600px) {
 }

@@ -6,11 +6,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles/add-item.css">
   <link rel="icon" href="img/pnhs.png">
-  <title>Home</title>
+  <title>Add item</title>
 </head>
 
 <?php
 include("php/display.php");
+include("php/displayWelcome.php");
+
+if (isset($_POST['add-item']) && isset($_FILES['item_img'])) {
+  $item_name = $_POST['item_name'];
+  $item_prc = $_POST['item_prc'];
+  $item_cat = $_POST['item_cat'];
+
+  $name = $_FILES['item_img']['name'];
+  $tmp_name = $_FILES['item_img']['tmp_name']; //path
+
+  $img_ex = pathinfo($name, PATHINFO_EXTENSION);
+  $img_ex_lc = strtolower($img_ex);
+
+  $allowed_exs = array("jpg", "jpeg", "png"); 
+
+  if (in_array($img_ex_lc, $allowed_exs)) {
+    $new_name = "img-".$name;
+    $img_upload_path = 'uploads/'.$new_name;
+    move_uploaded_file($tmp_name, $img_upload_path);
+
+    // insert into database
+    $insert = "INSERT INTO tbl_item value ('', '$item_name', '$item_prc', '$new_name', '$item_cat')";
+    mysqli_query($con, $insert);
+  }
+}
 ?>
 
 <body>
@@ -39,54 +64,55 @@ include("php/display.php");
     </div>
     <div class="showNavbar">
       <div class="tab"></div>
-      <a href="index.php" class="tab">Home</a>
-      <a href="signin.php" class="tab">Login</a>
-      <a href="signup.php" class="tab">Sign up</a>
+      <a href="staff-admin.php" class="tab">Home</a>
+      <a href="pending-orders.php" class="tab">Pending Orders</a>
+      <a href="ready-orders.php" class="tab">Ready Orders</a>
+      <a href="completed-orders.php" class="tab">Completed Orders</a>
+      <a href="add-item.php" class="tab">Add Item</a>
       <a href="terms.php" class="tab">Terms and Conditions</a>
     </div>
 
     <div class="back-home">
-      <a href="index.php"><img src="img/left.png" class="back-home-icon"> Home </a>
+      <a href="staff-admin.php"><img src="img/left.png" class="back-home-icon"> Home </a>
     </div>
 
     <div class="cart">
       <h1 class="title">Add Item</h1>
 
       <div class="upload">
-        <form action="" class="form">
+        <form class="form" method="post" action="add-item.php" enctype="multipart/form-data">
           <div class="name">
-            <label for="name" class="label-name">Name</label>
-            <input type="text" name="name" id="name">
+            <label for="item_name" class="label-name">Name</label>
+            <input type="text" name="item_name" id="name" required>
           </div>
 
           <div class="price">
-            <label for="price" class="label-price">Price</label>
-            <input type="number" name="price" id="price">
+            <label for="item_prc" class="label-price">Price</label>
+            <input type="number" name="item_prc" id="price" required>
           </div>
 
           <div class="file">
-            <label for="img">Add Image</label>
-            <input type="file" id="img" name="img" accept="image/*">
+            <label for="item_img">Add Image</label>
+            <input type="file" id="img" name="item_img" accept="image/*" required>
           </div>
 
           <div class="category">
             <h2>Item Type</h2>
             <div class="custom-select">
-              <select name="category" id="category">
-                <option value="drinks">Drinks</option>
-                <option value="coffee">Coffee</option>
-                <option value="rice-meal">Rice Meal</option>
-                <option value="snacks">Snacks</option>
-                <option value="burger">Burger</option>
-                <option value="desserts">Desserts</option>
-                <option value="others">Others</option>
+              <select name="item_cat" id="category">
+                <option value="Drinks">Drinks</option>
+                <option value="Coffee">Coffee</option>
+                <option value="Rice Meals">Rice Meals</option>
+                <option value="Snacks">Snacks</option>
+                <option value="Burger">Burger</option>
+                <option value="Desserts">Desserts</option>
               </select>
             </div>
           </div>
 
           <div class="btns">
-            <button type="button" class="cancel">Cancel</button>
-            <button class="save">Save</button>
+            <button type="button" class="cancel" onclick="window.location = 'staff-admin.php';">Cancel</button>
+            <button type="submit" name="add-item" class="save">Save</button>
           </div>
         </form>
       </div>
