@@ -15,19 +15,18 @@ include("php/displayWelcome.php");
 
 if (isset($_GET['item_no'])) {
   $item_no = $_GET['item_no'];
-  $query="SELECT * FROM tbl_item WHERE item_no = '$item_no';";
-  $result=mysqli_query($con, $query);
-  $title_rows=mysqli_num_rows($result);
+  $query = "SELECT * FROM tbl_item WHERE item_no = '$item_no';";
+  $result = mysqli_query($con, $query);
+  $title_rows = mysqli_num_rows($result);
   if ($title_rows != 0) {
-    while ($row=mysqli_fetch_array($result,MYSQLI_ASSOC))
-    {
-      $item_no=$row['item_no'];
-      $item_name=$row['item_name'];
-      $item_prc=$row['item_prc'];
-      $item_img=$row['item_img'];
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+      $item_no = $row['item_no'];
+      $item_name = $row['item_name'];
+      $item_prc = $row['item_prc'];
+      $item_img = $row['item_img'];
     }
   }
-}else{
+} else {
   header("location:menu.php");
 }
 
@@ -62,19 +61,19 @@ if (isset($_GET['item_no'])) {
       <div class="tab"></div>
 
       <!-- FOR STUDENT -->
-      <a href="index.php" class="tab <?php echo $stud_visibility;?>">Home</a>
-      <a href="signin.php" class="tab <?php echo $stud_visibility;?>">Login</a>
-      <a href="signup.php" class="tab <?php echo $stud_visibility;?>">Sign up</a>
-      <a href="terms.php" class="tab <?php echo $stud_visibility;?>">Terms and Conditions</a>
+      <a href="index.php" class="tab <?php echo $stud_visibility; ?>">Home</a>
+      <a href="signin.php" class="tab <?php echo $stud_visibility; ?>">Login</a>
+      <a href="signup.php" class="tab <?php echo $stud_visibility; ?>">Sign up</a>
+      <a href="terms.php" class="tab <?php echo $stud_visibility; ?>">Terms and Conditions</a>
       <!-- END OF STUDENT -->
 
       <!-- FOR STAFF -->
-      <a href="staff-admin.php" class="tab <?php echo $staff_visibility;?>">Home</a>
-      <a href="pending-orders.php" class="tab <?php echo $staff_visibility;?>">Pending Orders</a>
-      <a href="ready-orders.php" class="tab <?php echo $staff_visibility;?>">Ready Orders</a>
-      <a href="completed-orders.php" class="tab <?php echo $staff_visibility;?>">Completed Orders</a>
-      <a href="add-item.php" class="tab <?php echo $staff_visibility;?>">Add Item</a>
-      <a href="terms.php" class="tab <?php echo $staff_visibility;?>">Terms and Conditions</a>
+      <a href="staff-admin.php" class="tab <?php echo $staff_visibility; ?>">Home</a>
+      <a href="pending-orders.php" class="tab <?php echo $staff_visibility; ?>">Pending Orders</a>
+      <a href="ready-orders.php" class="tab <?php echo $staff_visibility; ?>">Ready Orders</a>
+      <a href="completed-orders.php" class="tab <?php echo $staff_visibility; ?>">Completed Orders</a>
+      <a href="add-item.php" class="tab <?php echo $staff_visibility; ?>">Add Item</a>
+      <a href="terms.php" class="tab <?php echo $staff_visibility; ?>">Terms and Conditions</a>
       <!-- END OF STAFF -->
 
     </div>
@@ -93,40 +92,71 @@ if (isset($_GET['item_no'])) {
             <input type='hidden' id='prc' value='$item_prc'>
             ";
       ?>
-      
+
     </div>
 
-    <div class="details">
+    <div class="form">
       <div class="caption">Customize your order</div>
+
+      <form class="variation-quantity" action="order.php" method="post">
+        <div class="variation">
+          <div class="hot-cold">
+            <div class="temp">
+              <div class="name">
+                <label for="hot">Hot</label>
+              </div>
+              <img src="img/sb.png" class="cup">
+              <input type="radio" name="temp" id="hot">
+            </div>
+
+            <div class="temp">
+              <div class="name">
+                <label for="cold">Cold</label>
+              </div>
+              <img src="img/sb.png" class="cup">
+              <input type="radio" name="temp" id="cold">
+            </div>
+          </div>
+
+          <div class="size">
+            <div class="temp">
+              <div class="name">
+                <label for="medium">Medium</label>
+              </div>
+              <img src="img/sb.png" class="cup">
+              <input type="radio" name="size" id="medium">
+            </div>
+
+            <div class="temp">
+              <div class="name">
+                <label for="large">Large</label>
+              </div>
+              <img src="img/sb.png" class="cup">
+              <input type="radio" name="size" id="large">
+            </div>
+          </div>
+        </div>
+
+        <div class="quantity">
+          <div class="qty">
+            Add to my cart <BR>
+            <div class="quantity-div">
+              <button class="minus-btn" onclick="minus()" type="button"><img src="img/minus.png" class="minus-icon"></button>
+              <input type="number" id="quantity" value="1" step="1" min="1">
+              <button class="plus-btn" onclick="plus()" type="button"><img src="img/plus.png" class="plus-icon"></button>
+            </div>
+            <?php
+            print "
+                  <span id='total'>PHP $item_prc</span>
+                  ";
+            ?>
+          </div>
+          <button type="submit" id="submit" name="add_itemorder">CONFIRM</button>
+        </div>
+      </form>
     </div>
 
-    <form class="variation-quantity" action="order.php" method="post">
-      <div class="variation">
-        <div class="hot-cold">
-          hot-cold
-        </div>
-        <div class="size">
-          medium large
-        </div>
-      </div>
 
-      <div class="quantity">
-        <div class="qty">
-          Add to my cart <BR>
-          <div class="quantity-div">
-            <button class="minus-btn" onclick="minus()" type="button"><img src="img/minus.png" class="minus-icon"></button>
-            <input type="number" id="quantity" value="1" step="1" min="1">
-            <button class="plus-btn" onclick="plus()" type="button"><img src="img/plus.png" class="plus-icon"></button>
-          </div>
-          <?php
-          print "
-                <span id='total'>PHP $item_prc</span>
-                ";
-          ?>
-        </div>
-        <button type="submit" id="submit" name="add_itemorder">CONFIRM</button>
-      </div>
-    </form>
 
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>

@@ -203,7 +203,7 @@ html {
   margin-right: 2vw;
 }
 
-.item{
+.item {
   width: 100vw;
   display: flex;
   padding: 5%;
@@ -211,53 +211,86 @@ html {
   flex-wrap: wrap;
 }
 
-.item img{
+.item img {
   width: 170px;
   height: 170px;
   margin-bottom: 10px;
 }
 
-.item span{
+.item span {
   width: 100vw;
   text-align: center;
 }
 
-.details{
+.form {
   display: flex;
-  background-color: #4472C4;
+  background-color: #4472c4;
   width: 100vw;
+  flex-direction: column;
+  align-items: center;
 }
 
-.caption{
+.caption {
   width: 100vw;
   text-align: center;
 }
 
-.variation-quantity{
+.variation-quantity {
   display: flex;
-  background-color: #4472C4;
-  width: 100vw;
+  background-color: #4472c4;
+  width: 80%;
+  justify-content: center;
+  align-items: center;
 }
 
-.variation{
+.variation {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
   width: 50%;
+  margin: 20px 0;
 }
 
-.hot-cold{
+.cup {
+  width: 30%;
+  margin-bottom: 5px;
+}
+
+.temp {
   display: flex;
-  background-color: green;
-  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.size{
+.name {
   display: flex;
-  background-color: violet;
-  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
-.quantity{
+#hot,
+#cold,
+#medium,
+#large {
+  margin: 0 10px;
+}
+
+.hot-cold {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.size {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin: 5px 0;
+}
+
+.quantity {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -265,14 +298,18 @@ html {
   padding: 10px;
 }
 
-.qty{
-  background-color: #FFC000;
+.qty {
+  background-color: #ffc000;
   border-top-left-radius: 15px;
   border-bottom-right-radius: 15px;
   border: 2px solid white;
   padding: 0 20px;
   width: 100%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 5%;
 }
 
 .quantity-div {
@@ -299,29 +336,30 @@ html {
   filter: invert(100%);
 }
 
-#quantity{
+#quantity {
   width: 35px;
   background-color: transparent;
   border: none;
   text-align: center;
 }
 
-#submit{
+#submit {
   margin-top: 5%;
   width: 30vw;
-  background-color: var(--green);
+  background-color: #70ad47;
   color: var(--white);
   padding: 5px 15px;
   border: 0;
-  border-radius: 3px;
-} 
+  border-radius: 5px;
+  border: 1px solid #507e32;
+}
 
-.visible{
+.visible {
   visibility: visible;
   position: relative;
 }
 
-.hidden{
+.hidden {
   visibility: hidden;
   position: absolute;
 }
