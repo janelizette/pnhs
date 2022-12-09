@@ -305,13 +305,26 @@ label {
 
 .category > h2 {
   font-weight: 700;
+  margin-bottom: 20px;
 }
+
+/* .custom-select {
+  height: 100%;
+  background-color: green;
+} */
 
 #category {
   background-color: #ffc000;
   border: 1px solid #bc8c00;
   text-align: center;
   padding: 5px 20px;
+  height: 100%;
+  transition: all 0.5s;
+}
+
+#category:focus {
+  margin-bottom: 200px;
+  transition: all 0.5s;
 }
 
 .btns {

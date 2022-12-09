@@ -24,11 +24,11 @@ if (isset($_POST['add-item']) && isset($_FILES['item_img'])) {
   $img_ex = pathinfo($name, PATHINFO_EXTENSION);
   $img_ex_lc = strtolower($img_ex);
 
-  $allowed_exs = array("jpg", "jpeg", "png"); 
+  $allowed_exs = array("jpg", "jpeg", "png");
 
   if (in_array($img_ex_lc, $allowed_exs)) {
-    $new_name = "img-".$name;
-    $img_upload_path = 'uploads/'.$new_name;
+    $new_name = "img-" . $name;
+    $img_upload_path = 'uploads/' . $new_name;
     move_uploaded_file($tmp_name, $img_upload_path);
 
     // insert into database
@@ -99,7 +99,7 @@ if (isset($_POST['add-item']) && isset($_FILES['item_img'])) {
           <div class="category">
             <h2>Item Type</h2>
             <div class="custom-select">
-              <select name="item_cat" id="category">
+              <select name="item_cat" id="category" class="js-example-basic-single" offset={500} data-dropup-auto="true">
                 <option value="Drinks">Drinks</option>
                 <option value="Coffee">Coffee</option>
                 <option value="Rice Meals">Rice Meals</option>
@@ -119,8 +119,8 @@ if (isset($_POST['add-item']) && isset($_FILES['item_img'])) {
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script type="text/javascript" src="scripts/index.js"></script>
-    <script type="text/javascript" src="scripts/order.js"></script>
-    <script type="text/javascript" src="scripts/selected.js"></script>
+    <!-- <script type="text/javascript" src="scripts/order.js"></script> -->
+    <!-- <script type="text/javascript" src="scripts/selected.js"></script> -->
 </body>
 
 </html>
