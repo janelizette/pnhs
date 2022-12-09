@@ -292,12 +292,6 @@ input[type="radio"] {
 }
 
 @media only screen and (max-width: 320px) {
-  /* .header {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  } */
-
   .header > p {
     white-space: nowrap;
     overflow: hidden;

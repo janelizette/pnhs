@@ -42,7 +42,9 @@ if (isset($_GET['item_no'])) {
   </div>
 
   <div class="header">
-    PARAÑAQUE NATIONAL HIGH SCHOOL - MAIN - Home of the Gentle Warriors
+    <p>
+      PARAÑAQUE NATIONAL HIGH SCHOOL - MAIN - Home of the Gentle Warriors
+    </p>
   </div>
   <div class="content">
     <div class="navbar">

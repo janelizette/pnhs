@@ -43,6 +43,9 @@ html {
   background-color: var(--green);
   width: 100vw;
   padding: var(--padding);
+}
+
+.header > p {
   color: var(--white);
   font-weight: 700;
 }
@@ -258,7 +261,7 @@ html {
 }
 
 @media only screen and (max-width: 320px) {
-  .header {
+  .header > p {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

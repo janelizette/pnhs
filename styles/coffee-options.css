@@ -48,6 +48,9 @@ html {
   background-color: var(--green);
   width: 100vw;
   padding: var(--padding);
+}
+
+.header > p {
   color: var(--white);
   font-weight: 700;
 }
@@ -57,7 +60,7 @@ html {
   flex-direction: column;
   width: 100%;
   background-color: whitesmoke;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .navbar {
@@ -203,8 +206,8 @@ html {
   margin-right: 2vw;
 }
 
-.cart{
-	margin: 0 0 0 2vw;
+.cart {
+  margin: 0 0 0 2vw;
 }
 
 .title {
@@ -251,12 +254,12 @@ html {
   text-align: center;
 }
 
-.visible{
+.visible {
   visibility: visible;
   position: relative;
 }
 
-.hidden{
+.hidden {
   visibility: hidden;
   position: absolute;
 }
@@ -265,7 +268,7 @@ html {
 }
 
 @media only screen and (max-width: 320px) {
-  .header {
+  .header > p {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
