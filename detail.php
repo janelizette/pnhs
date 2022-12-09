@@ -80,20 +80,26 @@ if (isset($_GET['item_no'])) {
 
     <div class="back-menu">
       <a href="menu.php"><img src="img/left.png" class="back-menu-icon"> Back to menu </a>
-      <a href="order.php"> View Cart <img src="img/cart.png" class="back-menu-icon cart"></a>
+      <a href="archive.php"> Archive <img src="img/archive.png" class="back-menu-icon arch"></a>
     </div>
 
-    <div class="item">
-      <?php
-      print "
-            <img src='uploads/$item_img'>
-            <span>$item_name</span>
-            <span>PHP $item_prc.00</span>
-            <input type='hidden' id='prc' value='$item_prc'>
-            ";
-      ?>
+    <div class="item-cont">
+      <div class="archive">
+        <button class="archive-btn"><img src="img/minus.png" class="archive-icon"></button>
+      </div>
 
+      <div class="item">
+        <?php
+        print "
+              <img src='uploads/$item_img'>
+              <span>$item_name</span>
+              <span>PHP $item_prc.00</span>
+              <input type='hidden' id='prc' value='$item_prc'>
+              ";
+        ?>
+      </div>
     </div>
+
 
     <div class="form">
       <div class="caption">Customize your order</div>
