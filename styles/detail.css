@@ -212,6 +212,10 @@ html {
     brightness(94%) contrast(89%);
 }
 
+.cart {
+  margin: 0 0 0 2vw;
+}
+
 .item {
   width: 100vw;
   display: flex;

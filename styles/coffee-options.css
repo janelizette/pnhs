@@ -206,6 +206,12 @@ html {
   margin-right: 2vw;
 }
 
+.arch {
+  margin: 0 0 0 2vw;
+  filter: invert(28%) sepia(8%) saturate(725%) hue-rotate(169deg)
+    brightness(94%) contrast(89%);
+}
+
 .cart {
   margin: 0 0 0 2vw;
 }

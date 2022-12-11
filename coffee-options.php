@@ -64,7 +64,12 @@ include("php/displayWelcome.php")
 
     <div class="back-menu">
       <a href="menu.php"><img src="img/left.png" class="back-menu-icon"> Back to menu </a>
-      <a href="order.php"> View Cart <img src="img/cart.png" class="back-menu-icon cart"></a>
+
+      <!-- FOR STUDENT -->
+      <a href="order.php" class="<?php echo $stud_visibility; ?>"> View Cart <img src="img/cart.png" class="back-menu-icon cart"></a>
+
+      <!-- FOR STAFF -->
+      <a href="archive.php" class="<?php echo $staff_visibility; ?>"> Archive <img src="img/archive.png" class="back-menu-icon arch"></a>
     </div>
 
     <div class="cart">
