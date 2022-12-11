@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2022 at 07:53 PM
+-- Generation Time: Dec 11, 2022 at 10:13 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -20,6 +20,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `pnhs_canteen`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_archive`
+--
+
+CREATE TABLE `tbl_archive` (
+  `item_no` int(11) NOT NULL,
+  `item_name` varchar(128) NOT NULL,
+  `item_prc` int(11) NOT NULL,
+  `item_img` text NOT NULL,
+  `item_cat` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -48,17 +62,6 @@ CREATE TABLE `tbl_item` (
   `item_cat` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `tbl_item`
---
-
-INSERT INTO `tbl_item` (`item_no`, `item_name`, `item_prc`, `item_img`, `item_cat`) VALUES
-(1, 'Coffee', 80, 'img-Capture.PNG', 'Coffee'),
-(2, 'Coffee', 80, 'img-Capture.PNG', 'Coffee'),
-(3, 'Coffee', 80, 'img-Capture.PNG', 'Coffee'),
-(4, 'Coffee', 80, 'img-Capture.PNG', 'Coffee'),
-(5, 'Cappuccino', 30, 'img-Capture.PNG', 'Coffee');
-
 -- --------------------------------------------------------
 
 --
@@ -82,6 +85,7 @@ CREATE TABLE `tbl_order` (
 
 CREATE TABLE `tbl_status` (
   `trans_no` int(11) NOT NULL,
+  `email` varchar(128) NOT NULL,
   `trans_status` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -99,16 +103,14 @@ CREATE TABLE `tbl_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_user`
---
-
-INSERT INTO `tbl_user` (`username`, `email`, `password`, `user_type`) VALUES
-('Ria', 'ria@depedparanaquecity.com', '123', 'type_student'),
-('Staff', 'staff@depedparanaquecity.com', '123', 'type_staff');
-
---
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `tbl_archive`
+--
+ALTER TABLE `tbl_archive`
+  ADD PRIMARY KEY (`item_no`);
 
 --
 -- Indexes for table `tbl_item`
@@ -121,6 +123,12 @@ ALTER TABLE `tbl_item`
 --
 ALTER TABLE `tbl_order`
   ADD PRIMARY KEY (`tran_no`);
+
+--
+-- Indexes for table `tbl_status`
+--
+ALTER TABLE `tbl_status`
+  ADD PRIMARY KEY (`trans_no`);
 
 --
 -- Indexes for table `tbl_user`
@@ -136,13 +144,19 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_item`
 --
 ALTER TABLE `tbl_item`
-  MODIFY `item_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `item_no` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
   MODIFY `tran_no` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_status`
+--
+ALTER TABLE `tbl_status`
+  MODIFY `trans_no` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
