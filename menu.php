@@ -65,12 +65,12 @@ include("php/displayWelcome.php");
     <div class="message">There's something for everyone!</div>
 
     <div class="options">
-      <a class="option" href="coffee-options.php"><img src="img/coffee-cup.png"><span>Coffee</span></a>
-      <a class="option" href="detail.php"><img src="img/burger.png"><span>Burgers</span></a>
-      <a class="option" href="detail.php"><img src="img/drinks.png"><span>Drinks</span></a>
-      <a class="option" href="detail.php"><img src="img/rice.png"><span>Rice Meals</span></a>
-      <a class="option" href="detail.php"><img src="img/snack.png"><span>Snacks</span></a>
-      <a class="option" href="detail.php"><img src="img/dessert.png"><span>Dessert</span></a>
+      <a class="option" href="options.php?category=coffee"><img src="img/coffee-cup.png"><span>Coffee</span></a>
+      <a class="option" href="options.php?category=burger"><img src="img/burger.png"><span>Burger</span></a>
+      <a class="option" href="options.php?category=drinks"><img src="img/drinks.png"><span>Drinks</span></a>
+      <a class="option" href="options.php?category=rice%20meals"><img src="img/rice.png"><span>Rice Meals</span></a>
+      <a class="option" href="options.php?category=snacks"><img src="img/snack.png"><span>Snacks</span></a>
+      <a class="option" href="options.php?category=desserts"><img src="img/dessert.png"><span>Desserts</span></a>
     </div>
   </div>
   <script src="scripts/index.js"></script>
