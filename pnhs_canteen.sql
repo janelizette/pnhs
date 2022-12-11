@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2022 at 10:13 AM
+-- Generation Time: Dec 11, 2022 at 01:18 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -62,6 +62,21 @@ CREATE TABLE `tbl_item` (
   `item_cat` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `tbl_item`
+--
+
+INSERT INTO `tbl_item` (`item_no`, `item_name`, `item_prc`, `item_img`, `item_cat`) VALUES
+(4, 'Plain Burger', 20, 'img-istockphoto-155352091-612x612.jpg', 'Burger'),
+(5, 'Cheese Burger', 25, 'img-DC_202006_0003_Cheeseburger_StraightBun_832x472_1-3-product-tile-desktop.jpg', 'Burger'),
+(6, 'Hotdog Sandwich', 25, 'img-hot-dog-ketchup-9072411.jpg', 'Burger'),
+(7, 'Piattos', 20, 'img-25-1100-4800016113246-Jack-n-Jill-Piattos-CHeese-Party-Pack-212g-No.1.jpg', 'Snacks'),
+(8, 'Lugaw', 15, 'img-lugaw.jpg', 'Snacks'),
+(9, 'Togue', 10, 'img-download (2).jpg', 'Snacks'),
+(10, 'Rebisco Cream ', 10, 'img-Rebisco-Cream-Cream-Filled-Cracker-Sandwich-32g-500x500-product_popup.jpg', 'Snacks'),
+(11, 'Fruit Smoothies', 45, 'img-How-to-Make-Smoothie-1-1.jpg', 'Drinks'),
+(12, 'Coffee Frappe', 45, 'img-mld106029_0810_frape_vert.jpg', 'Coffee');
+
 -- --------------------------------------------------------
 
 --
@@ -103,14 +118,17 @@ CREATE TABLE `tbl_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Indexes for dumped tables
+-- Dumping data for table `tbl_user`
 --
 
+INSERT INTO `tbl_user` (`username`, `email`, `password`, `user_type`) VALUES
+('Hiroki', 'hiroki.yamada@depedparanaquecity.com', '123', 'type_student'),
+('xander', 'xander.ison@depedparanaquecity.com', '123', 'type_student'),
+('Yamada', 'hiromi.yamada@depedparanaquecity.com', '123', 'type_staff');
+
 --
--- Indexes for table `tbl_archive`
+-- Indexes for dumped tables
 --
-ALTER TABLE `tbl_archive`
-  ADD PRIMARY KEY (`item_no`);
 
 --
 -- Indexes for table `tbl_item`
@@ -119,22 +137,10 @@ ALTER TABLE `tbl_item`
   ADD PRIMARY KEY (`item_no`);
 
 --
--- Indexes for table `tbl_order`
---
-ALTER TABLE `tbl_order`
-  ADD PRIMARY KEY (`tran_no`);
-
---
--- Indexes for table `tbl_status`
---
-ALTER TABLE `tbl_status`
-  ADD PRIMARY KEY (`trans_no`);
-
---
 -- Indexes for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  ADD PRIMARY KEY (`email`);
+  ADD PRIMARY KEY (`username`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -144,19 +150,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_item`
 --
 ALTER TABLE `tbl_item`
-  MODIFY `item_no` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `tbl_order`
---
-ALTER TABLE `tbl_order`
-  MODIFY `tran_no` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `tbl_status`
---
-ALTER TABLE `tbl_status`
-  MODIFY `trans_no` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `item_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
