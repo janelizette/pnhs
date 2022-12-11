@@ -12,6 +12,52 @@
 <?php
 include("php/display.php");
 include("php/displayWelcome.php");
+
+if (isset($_POST['btn_archive'])) {
+  $item_no = $_POST['item_no'];
+  $query = "SELECT * FROM tbl_item WHERE item_no = '$item_no';";
+  $result = mysqli_query($con, $query);
+  $title_rows = mysqli_num_rows($result);
+  if ($title_rows != 0) {
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+      $item_no = $row['item_no'];
+      $item_name = $row['item_name'];
+      $item_prc = $row['item_prc'];
+      $item_img = $row['item_img'];
+      $item_cat = $row['item_cat'];
+    }
+  }
+  //Removing from tbl_item
+  $delete = "DELETE FROM tbl_item WHERE item_no = '$item_no';";
+  $result = mysqli_query($con, $delete);
+
+  //Adding to tbl_archive
+  $insert = "INSERT INTO tbl_archive value ('$item_no', '$item_name', '$item_prc', '$item_img', '$item_cat')";
+  mysqli_query($con, $insert);
+}
+
+if (isset($_POST['item'])) {
+  $item_no = $_POST['item'];
+  $query = "SELECT * FROM tbl_archive WHERE item_no = '$item_no';";
+  $result = mysqli_query($con, $query);
+  $title_rows = mysqli_num_rows($result);
+  if ($title_rows != 0) {
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+      $item_no = $row['item_no'];
+      $item_name = $row['item_name'];
+      $item_prc = $row['item_prc'];
+      $item_img = $row['item_img'];
+      $item_cat = $row['item_cat'];
+    }
+  }
+  //Removing from tbl_archive
+  $delete = "DELETE FROM tbl_archive WHERE item_no = '$item_no';";
+  $result = mysqli_query($con, $delete);
+
+  //Adding to tbl_item
+  $insert = "INSERT INTO tbl_item value ('$item_no', '$item_name', '$item_prc', '$item_img', '$item_cat')";
+  mysqli_query($con, $insert);
+}
 ?>
 
 <body>
@@ -66,50 +112,38 @@ include("php/displayWelcome.php");
         </h1>
       </div>
 
-      <div class="item">
-        <form action="" class="form">
-          <div class="option">
-            <input type="radio" name="item" id="coffee1">
-            <label for="coffee1">
-              <img src="uploads/coffee.png" class="coffee-img">
-              <h1>Coffee</h1>
-              <h1>Php 80.00</h1>
-            </label>
-          </div>
+      <form action="archive.php" method="post" class="item">
+        <div class="form">
+          <?php
+          $query = "SELECT * FROM tbl_archive;";
+          $result = mysqli_query($con, $query);
+          $title_rows = mysqli_num_rows($result);
+          if ($title_rows != 0) {
+            while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+              $item_no = $row['item_no'];
+              $item_name = $row['item_name'];
+              $item_prc = $row['item_prc'];
+              $item_img = $row['item_img'];
 
-          <div class="option">
-            <input type="radio" name="item" id="coffee2">
-            <label for="coffee2">
-              <img src="uploads/coffee.png" class="coffee-img">
-              <h1>Coffee</h1>
-              <h1>Php 80.00</h1>
-            </label>
-          </div>
-
-          <div class="option">
-            <input type="radio" name="item" id="coffee3">
-            <label for="coffee3">
-              <img src="uploads/coffee.png" class="coffee-img">
-              <h1>Coffee</h1>
-              <h1>Php 80.00</h1>
-            </label>
-          </div>
-
-          <div class="option">
-            <input type="radio" name="item" id="coffee4">
-            <label for="coffee4">
-              <img src="uploads/coffee.png" class="coffee-img">
-              <h1>Coffee</h1>
-              <h1>Php 80.00</h1>
-            </label>
-          </div>
-        </form>
-
+              print "
+                <div class='option'>
+                  <input type='radio' name='item' id='$item_no' value='$item_no'>
+                  <label for='$item_no'>
+                    <img src='uploads/$item_img' class='coffee-img'>
+                    <h1>$item_name</h1>
+                    <h1>Php $item_prc.00</h1>
+                  </label>
+                </div>
+              ";
+            }
+          }
+          ?>
+        </div>
 
         <div class="btn">
-          <button class="restore">RESTORE</button>
+          <button type="submit" class="restore" name="btn_restore">RESTORE</button>
         </div>
-      </div>
+      </form>
 
     </div>
 

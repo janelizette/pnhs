@@ -29,7 +29,6 @@ if (isset($_GET['item_no'])) {
 } else {
   header("location:menu.php");
 }
-
 ?>
 
 <body>
@@ -91,9 +90,10 @@ if (isset($_GET['item_no'])) {
     </div>
 
     <div class="item-cont">
-      <div class="archive">
-        <button class="archive-btn <?php echo $staff_visibility; ?>"><img src="img/minus.png" class="archive-icon"></button>
-      </div>
+      <form class="archive" action="archive.php" method="post">
+        <input type="hidden" name="item_no" value="<?php echo $item_no; ?>">
+        <button type="submit" name="btn_archive" class="archive-btn <?php echo $staff_visibility; ?>"><img src="img/minus.png" class="archive-icon"></button>
+      </form>
 
       <div class="item">
         <?php
