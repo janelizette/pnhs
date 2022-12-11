@@ -6,13 +6,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles/detail.css">
   <link rel="icon" href="img/pnhs.png">
-  <title>Coffee</title>
+  <title>
+    <?php
+    include("php/display.php");
+    include("php/displayWelcome.php");
+
+    if (isset($_GET['item_no'])) {
+      $item_no = $_GET['item_no'];
+      $query = "SELECT * FROM tbl_item WHERE item_no = '$item_no';";
+      $result = mysqli_query($con, $query);
+      $title_rows = mysqli_num_rows($result);
+      if ($title_rows != 0) {
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+          $title = $row['item_cat'];
+          print ucwords($title);
+        }
+      }  
+    }else{
+      header("location:menu.php");
+    }
+    ?>
+  </title>
 </head>
 
 <?php
-include("php/display.php");
-include("php/displayWelcome.php");
-
 if (isset($_GET['item_no'])) {
   $item_no = $_GET['item_no'];
   $query = "SELECT * FROM tbl_item WHERE item_no = '$item_no';";
@@ -24,11 +41,31 @@ if (isset($_GET['item_no'])) {
       $item_name = $row['item_name'];
       $item_prc = $row['item_prc'];
       $item_img = $row['item_img'];
+      $item_cat = $row['item_cat'];
+
+      if ($item_cat === "Coffee" or $item_cat === "Drinks") {
+        $disabled = "";
+      }else{
+        $disabled = "disabled";
+      }
     }
   }
 } else {
   header("location:menu.php");
 }
+
+/*if (isset($_POST['add_itemorder'])) {
+  $email = $_SESSION['email'];
+  $item_no = $_POST['item_no'];
+  $item_qty =  $_POST['qty'];
+  if (isset($_POST['temp']) or isset($_POST['size'])) {
+    $item_temp = $_POST['temp'];
+    $item_size = $_POST['size'];
+  }else{
+    $item_temp = "";
+    $item_size = "";    
+  }
+}*/
 ?>
 
 <body>
@@ -119,7 +156,7 @@ if (isset($_GET['item_no'])) {
                 <label for="hot">Hot</label>
               </div>
               <img src="img/sb.png" class="cup">
-              <input type="radio" name="temp" id="hot">
+              <input type="radio" name="temp" value="Hot" id="hot" <?php echo $disabled; ?>>
             </div>
 
             <div class="temp">
@@ -127,7 +164,7 @@ if (isset($_GET['item_no'])) {
                 <label for="cold">Cold</label>
               </div>
               <img src="img/sb.png" class="cup">
-              <input type="radio" name="temp" id="cold">
+              <input type="radio" name="temp" value="Cold" id="cold" <?php echo $disabled; ?>>
             </div>
           </div>
 
@@ -137,7 +174,7 @@ if (isset($_GET['item_no'])) {
                 <label for="medium">Medium</label>
               </div>
               <img src="img/sb.png" class="cup">
-              <input type="radio" name="size" id="medium">
+              <input type="radio" name="size" value="Medium" id="medium" <?php echo $disabled; ?>>
             </div>
 
             <div class="temp">
@@ -145,7 +182,7 @@ if (isset($_GET['item_no'])) {
                 <label for="large">Large</label>
               </div>
               <img src="img/sb.png" class="cup">
-              <input type="radio" name="size" id="large">
+              <input type="radio" name="size" value="Large" id="large" <?php echo $disabled; ?>>
             </div>
           </div>
         </div>
@@ -155,7 +192,9 @@ if (isset($_GET['item_no'])) {
             Add to my cart <BR>
             <div class="quantity-div">
               <button class="minus-btn" onclick="minus()" type="button"><img src="img/minus.png" class="minus-icon"></button>
-              <input type="number" id="quantity" value="1" step="1" min="1">
+              <input type="number" id="quantity" name="item_qty" value="1" step="1" min="1">
+              <input type="hidden" name="item_no" value="<?php echo $item_no; ?>">
+              <input type="hidden" name="item_prc" value="<?php echo $item_prc; ?>">
               <button class="plus-btn" onclick="plus()" type="button"><img src="img/plus.png" class="plus-icon"></button>
             </div>
             <?php
