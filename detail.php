@@ -164,7 +164,7 @@ if (isset($_GET['item_no'])) {
                   ";
             ?>
           </div>
-          <button type="submit" id="submit" name="add_itemorder">CONFIRM</button>
+          <button type="submit" id="submit" name="add_itemorder" class="<?php echo $stud_visibility; ?>">CONFIRM</button>
         </div>
       </form>
     </div>
