@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2022 at 01:18 PM
+-- Generation Time: Dec 11, 2022 at 02:09 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -44,6 +44,8 @@ CREATE TABLE `tbl_archive` (
 CREATE TABLE `tbl_cart` (
   `email` varchar(128) NOT NULL,
   `item_no` int(11) NOT NULL,
+  `item_temp` varchar(128) DEFAULT NULL,
+  `item_size` varchar(128) DEFAULT NULL,
   `item_qty` int(11) NOT NULL,
   `item_subtotal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -101,7 +103,8 @@ CREATE TABLE `tbl_order` (
 CREATE TABLE `tbl_status` (
   `trans_no` int(11) NOT NULL,
   `email` varchar(128) NOT NULL,
-  `trans_status` varchar(128) NOT NULL
+  `trans_status` varchar(128) NOT NULL,
+  `trans_datetime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
