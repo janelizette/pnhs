@@ -73,6 +73,8 @@ if (isset($_POST['add_itemorder'])) {
       <h1 class="title">My cart</h1>
 
       <?php
+      $item_total = 0;
+      $id = 0;
       $query = "SELECT tbl_cart.email, tbl_cart.item_no, tbl_item.item_name, tbl_cart.item_qty, tbl_cart.item_prc, tbl_cart.item_temp, tbl_cart.item_size, tbl_cart.item_subtotal FROM tbl_cart LEFT JOIN tbl_item ON tbl_cart.item_no = tbl_item.item_no WHERE tbl_cart.email = '$email';";
       $result = mysqli_query($con, $query);
       $title_rows = mysqli_num_rows($result);
@@ -86,6 +88,7 @@ if (isset($_POST['add_itemorder'])) {
           $item_temp = $row['item_temp'];
           $item_size = $row['item_size'];
           $item_subtotal = $row['item_subtotal'];
+          $id += 1;
 
           //Getting the total of subtotal
           $query1 = "SELECT SUM(item_subtotal) AS item_total FROM tbl_cart WHERE email = '$email';";
@@ -99,27 +102,27 @@ if (isset($_POST['add_itemorder'])) {
                 <div class='delete'>
                   <button type='submit' name='item_delete' class='dlt-btn'>
                     <img src='img/trash.png' class='dlt-icon'>
-                    <input type='hidden' id='prc' value='$item_total'>
+                    <input type='hidden' id='prc$id' value='$item_prc'>
                   </button>
                 </div>
       
                 <div class='quantity-div'>
-                  <button type='button' class='minus-btn' onclick='minus()'><img src='img/minus.png' class='minus-icon'></button>
+                  <button type='button' class='minus-btn' onclick=cartminus('quantity$id','subtotal$id','prc$id','qty$id')><img src='img/minus.png' class='minus-icon'></button>
                   <p>
-                    <input type='number' id='quantity' name='item_qty' value='$item_qty' step='1' min='1'>
+                    <input type='number' class='qty' id='quantity$id' name='item_qty' value='$item_qty' step='1' min='1'>
                   </p>
-                  <button type='button' class='plus-btn' onclick='plus()'><img src='img/plus.png' class='plus-icon'></button>
+                  <button type='button' class='plus-btn' onclick=cartplus('quantity$id','subtotal$id','prc$id','qty$id')><img src='img/plus.png' class='plus-icon'></button>
                 </div>
               </div>
       
               <div class='name'>
                 <h2 class='item-name'>$item_name</h2>
-                <p>$item_qty x $item_temp $item_size</p>
+                <span id='qty$id'>$item_qty</span><span>x $item_temp $item_size</span>
               </div>
       
               <div class='price'>
-                <h2 class='item-price'>
-                  PHP $item_prc
+                <h2 class='item-price' id='subtotal$id'>
+                  PHP $item_subtotal
                 </h2>
               </div>
             </div>";
@@ -130,7 +133,7 @@ if (isset($_POST['add_itemorder'])) {
 
       <div class="total">
         <h2>Total</h2>
-        <h2 id="total">PHP <?php echo $item_total; ?></h2>
+        <h2>PHP <span id="total"><?php echo $item_total; ?></span></h2>
       </div>
 
       <div class="checkout-btn">
