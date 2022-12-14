@@ -290,7 +290,7 @@ html {
   padding: 1.5% 5%;
 }
 
-#quantity {
+.qty {
   width: 35px;
   text-align: center;
 }
