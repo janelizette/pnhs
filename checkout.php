@@ -6,11 +6,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles/checkout.css">
   <link rel="icon" href="img/pnhs.png">
-  <title>Home</title>
+  <title>Checkout</title>
 </head>
 
 <?php
 include("php/display.php");
+include("php/displayWelcome.php");
+
+//Getting current date and time
+date_default_timezone_set("Asia/Manila");
+$datetime = date("d/m/Y H:i:s");
+
+// Insert to tbl_status
+$insert = "INSERT INTO tbl_status VALUES ('', '$email', 'Pending', '$datetime')";
+mysqli_query($con, $insert);
+
+// Getting the trans_no from tbl_status
+$query1 = "SELECT MAX(trans_no) trans_no FROM `tbl_status` where email = '$email';";
+$result1 = mysqli_query($con, $query1);
+$row1 = mysqli_fetch_array($result1, MYSQLI_ASSOC);
+$trans_no = $row1['trans_no'];
+
+// Getting all rows in tbl_cart
+$query = "SELECT tbl_cart.email, tbl_cart.item_no, tbl_item.item_name, tbl_cart.item_qty, tbl_cart.item_temp, tbl_cart.item_size, tbl_cart.item_subtotal FROM tbl_cart LEFT JOIN tbl_item ON tbl_cart.item_no = tbl_item.item_no WHERE tbl_cart.email = '$email'";
+$result = mysqli_query($con, $query);
+$title_rows = mysqli_num_rows($result);
+if ($title_rows != 0) {
+  while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+    $email= $row['email'];
+    $item_no = $row['item_no'];
+    $item_name = $row['item_name'];
+    $item_qty = $row['item_qty'];
+    $item_temp = $row['item_temp'];
+    $item_size = $row['item_size'];
+    $item_subtotal = $row['item_subtotal'];
+
+    //Inserting all rows in tbl_order
+    $insert = "INSERT INTO tbl_order VALUES ('$trans_no', '$email', '$item_no', '$item_name', '$item_qty', '$item_temp', '$item_size', '$item_subtotal')";
+    mysqli_query($con, $insert);
+  }
+}
+
+// Deleting all entries from tbl_cart of current user
+$delete = "DELETE FROM `tbl_cart` WHERE email = '$email'";
+mysqli_query($con, $delete);
 ?>
 
 <body>
@@ -53,31 +92,11 @@ include("php/display.php");
       <h1 class="title">Orders</h1>
 
       <div class="items">
-        <!-- <div class="action">
-          <div class="delete">
-            <button class="dlt-btn">
-              <img src="img/trash.png" class="dlt-icon">
-            </button>
-          </div>
-
-          <div class="quantity">
-            <button class="minus-btn"><img src="img/minus.png" class="minus-icon"></button>
-            <p>5</p>
-            <button class="plus-btn"><img src="img/plus.png" class="plus-icon"></button>
-          </div>
-        </div> -->
-
         <div class="name">
           <h2 class="item-name">Cappuccino</h2>
           <p>2x Hot</p>
           <p>2x Cold</p>
         </div>
-
-        <!-- <div class="price">
-          <h2 class="item-price">
-            1000 PHP
-          </h2>
-        </div> -->
 
         <div class="status">
           <h1>Preparing</h1>
@@ -88,11 +107,6 @@ include("php/display.php");
         <h2>Total</h2>
         <h2>1000 PHP</h2>
       </div>
-
-      <!-- <div class="checkout-btn">
-        <button class="checkout-btn" onclick="window.location.href='checkout.php'">Proceed to Checkout</button>
-      </div> -->
-
     </div>
   </div>
   <script src="scripts/index.js"></script>

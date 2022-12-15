@@ -27,9 +27,15 @@ if (isset($_POST['add_itemorder'])) {
     $item_size = "";    
   }
   
-  $insert = "INSERT INTO tbl_cart VALUES ('$email', '$item_no', '$item_qty', '$item_prc', '$item_temp', '$item_size', '$item_subtotal')";
+  $insert = "INSERT INTO tbl_cart VALUES ('', '$email', '$item_no', '$item_qty', '$item_prc', '$item_temp', '$item_size', '$item_subtotal')";
   mysqli_query($con, $insert);
   header("location:order.php");
+}
+
+if (isset($_POST['item_delete'])) {
+  $cart_id = $_POST['cart_id'];
+  $delete = "DELETE FROM `tbl_cart` WHERE email = '$email' AND cart_id = $cart_id;";
+  mysqli_query($con, $delete);
 }
 ?>
 
@@ -69,18 +75,18 @@ if (isset($_POST['add_itemorder'])) {
       <a href="menu.php"><img src="img/left.png" class="back-menu-icon"> Back to menu </a>
     </div>
 
-    <form class="cart" action="order.php" method="post">
+    <form class="cart" action="" method="post">
       <h1 class="title">My cart</h1>
 
       <?php
       $item_total = 0;
-      $id = 0;
-      $query = "SELECT tbl_cart.email, tbl_cart.item_no, tbl_item.item_name, tbl_cart.item_qty, tbl_cart.item_prc, tbl_cart.item_temp, tbl_cart.item_size, tbl_cart.item_subtotal FROM tbl_cart LEFT JOIN tbl_item ON tbl_cart.item_no = tbl_item.item_no WHERE tbl_cart.email = '$email';";
+      $query = "SELECT tbl_cart.cart_id, tbl_cart.email, tbl_cart.item_no, tbl_item.item_name, tbl_cart.item_qty, tbl_cart.item_prc, tbl_cart.item_temp, tbl_cart.item_size, tbl_cart.item_subtotal FROM tbl_cart LEFT JOIN tbl_item ON tbl_cart.item_no = tbl_item.item_no WHERE tbl_cart.email = '$email';";
       $result = mysqli_query($con, $query);
       $title_rows = mysqli_num_rows($result);
       if ($title_rows != 0) {
         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
           $email = $row['email'];
+          $id = $row['cart_id'];
           $item_no = $row['item_no'];
           $item_name = $row['item_name'];
           $item_qty = $row['item_qty'];
@@ -88,7 +94,6 @@ if (isset($_POST['add_itemorder'])) {
           $item_temp = $row['item_temp'];
           $item_size = $row['item_size'];
           $item_subtotal = $row['item_subtotal'];
-          $id += 1;
 
           //Getting the total of subtotal
           $query1 = "SELECT SUM(item_subtotal) AS item_total FROM tbl_cart WHERE email = '$email';";
@@ -99,12 +104,13 @@ if (isset($_POST['add_itemorder'])) {
           print 
             "<div class='items'>
               <div class='action'>
-                <div class='delete'>
-                  <button type='submit' name='item_delete' class='dlt-btn'>
+                <form class='delete' method='post' action=''>
+                  <button type='submit' name='item_delete' class='dlt-btn' onclick=window.location.href='order.php'>
                     <img src='img/trash.png' class='dlt-icon'>
                     <input type='hidden' id='prc$id' value='$item_prc'>
+                    <input type='hidden' name='cart_id' value='$id'>
                   </button>
-                </div>
+                </form>
       
                 <div class='quantity-div'>
                   <button type='button' class='minus-btn' onclick=cartminus('quantity$id','subtotal$id','prc$id','qty$id')><img src='img/minus.png' class='minus-icon'></button>
@@ -137,7 +143,7 @@ if (isset($_POST['add_itemorder'])) {
       </div>
 
       <div class="checkout-btn">
-        <button type="submit" class="checkout-btn" onclick="window.location.href='checkout.php'">Proceed to Checkout</button>
+        <button type="submit" class="checkout-btn" name="submit" onclick="window.location.href='checkout.php'">Proceed to Checkout</button>
       </div>
 
     </form>
