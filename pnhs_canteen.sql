@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2022 at 02:09 PM
+-- Generation Time: Dec 16, 2022 at 02:01 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -42,11 +42,13 @@ CREATE TABLE `tbl_archive` (
 --
 
 CREATE TABLE `tbl_cart` (
+  `cart_id` int(11) NOT NULL,
   `email` varchar(128) NOT NULL,
   `item_no` int(11) NOT NULL,
+  `item_qty` int(11) NOT NULL,
+  `item_prc` int(11) NOT NULL,
   `item_temp` varchar(128) DEFAULT NULL,
   `item_size` varchar(128) DEFAULT NULL,
-  `item_qty` int(11) NOT NULL,
   `item_subtotal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -86,12 +88,14 @@ INSERT INTO `tbl_item` (`item_no`, `item_name`, `item_prc`, `item_img`, `item_ca
 --
 
 CREATE TABLE `tbl_order` (
-  `tran_no` int(11) NOT NULL,
+  `trans_no` int(11) NOT NULL,
   `email` varchar(128) NOT NULL,
   `item_no` int(11) NOT NULL,
+  `item_name` varchar(128) NOT NULL,
   `item_qty` int(11) NOT NULL,
-  `item_subtotal` int(11) NOT NULL,
-  `item_total` int(11) NOT NULL
+  `item_temp` varchar(128) DEFAULT NULL,
+  `item_size` varchar(128) DEFAULT NULL,
+  `item_subtotal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -104,7 +108,7 @@ CREATE TABLE `tbl_status` (
   `trans_no` int(11) NOT NULL,
   `email` varchar(128) NOT NULL,
   `trans_status` varchar(128) NOT NULL,
-  `trans_datetime` datetime NOT NULL
+  `trans_datetime` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -134,10 +138,22 @@ INSERT INTO `tbl_user` (`username`, `email`, `password`, `user_type`) VALUES
 --
 
 --
+-- Indexes for table `tbl_cart`
+--
+ALTER TABLE `tbl_cart`
+  ADD PRIMARY KEY (`cart_id`);
+
+--
 -- Indexes for table `tbl_item`
 --
 ALTER TABLE `tbl_item`
   ADD PRIMARY KEY (`item_no`);
+
+--
+-- Indexes for table `tbl_status`
+--
+ALTER TABLE `tbl_status`
+  ADD PRIMARY KEY (`trans_no`);
 
 --
 -- Indexes for table `tbl_user`
@@ -150,10 +166,22 @@ ALTER TABLE `tbl_user`
 --
 
 --
+-- AUTO_INCREMENT for table `tbl_cart`
+--
+ALTER TABLE `tbl_cart`
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `tbl_item`
 --
 ALTER TABLE `tbl_item`
   MODIFY `item_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `tbl_status`
+--
+ALTER TABLE `tbl_status`
+  MODIFY `trans_no` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
