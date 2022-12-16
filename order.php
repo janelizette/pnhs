@@ -143,7 +143,7 @@ if (isset($_POST['item_delete'])) {
       </div>
 
       <div class="checkout-btn">
-        <button type="submit" class="checkout-btn" name="submit" onclick="window.location.href='checkout.php'">Proceed to Checkout</button>
+        <button type="submit" class="checkout-btn" name="submit" onclick="window.location.href='checkout.php?transaction=true'" <?php if ($title_rows == 0) { echo "disabled"; } ?>>Proceed to Checkout</button>
       </div>
 
     </form>
