@@ -292,6 +292,15 @@ html {
   margin: 5px 0;
 }
 
+.checkout-btn > a {
+  background-color: #ffc000;
+  border: 1px solid #bc8c00;
+  border-radius: 5px;
+  padding: 1.5% 5%;
+  width: 250px;
+  margin: 5px 0;
+}
+
 .qty {
   width: 35px;
   text-align: center;
