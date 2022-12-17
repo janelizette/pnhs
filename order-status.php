@@ -53,8 +53,8 @@ include("php/display.php");
 
     <div class="buttons">
       <button onclick="window.location.href='pending-orders.php'">Pending Orders</button>
-      <button onclick="window.location.href='ready-orders.php'">Ready Orders</button>
       <button onclick="window.location.href='preparing-orders.php'">Preparing Orders</button>
+      <button onclick="window.location.href='ready-orders.php'">Ready Orders</button>
       <button onclick="window.location.href='completed-orders.php'">Completed Orders</button>
     </div>
 
