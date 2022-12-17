@@ -6,11 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles/pending-orders.css">
   <link rel="icon" href="img/pnhs.png">
-  <title>Home</title>
+  <title>Ready</title>
 </head>
 
 <?php
 include("php/display.php");
+include("php/displayWelcome.php");
 ?>
 
 <body>
@@ -41,80 +42,84 @@ include("php/display.php");
     </div>
     <div class="showNavbar">
       <div class="tab"></div>
-      <a href="index.php" class="tab">Home</a>
-      <a href="signin.php" class="tab">Login</a>
-      <a href="signup.php" class="tab">Sign up</a>
+
+      <a href="staff-admin.php" class="tab">Home</a>
+      <a href="pending-orders.php" class="tab">Pending Orders</a>
+      <a href="ready-orders.php" class="tab">Ready Orders</a>
+      <a href="completed-orders.php" class="tab">Completed Orders</a>
+      <a href="add-item.php" class="tab">Add Item</a>
       <a href="terms.php" class="tab">Terms and Conditions</a>
+
     </div>
 
     <div class="back-home">
-      <a href="index.php"><img src="img/left.png" class="back-home-icon"> Home </a>
+      <a href="staff-admin.php"><img src="img/left.png" class="back-home-icon"> Home </a>
     </div>
 
     <div class="cart">
-      <h1 class="title">Ready Orders</h1>
+      <h1 class="title">Pending Orders</h1>
 
-      <div class="items">
-        <div class="name">
-          <h2 class="item-name">Cappuccino</h2>
-          <p>2x Hot</p>
-          <p>2x Large</p>
-        </div>
+      <?php
+      $select = "SELECT * FROM tbl_status LEFT JOIN tbl_user ON tbl_status.email = tbl_user.email WHERE trans_status = 'Completed'";
+      $sel_result = mysqli_query($con, $select);
+      $sel_rows = mysqli_num_rows($sel_result);
+      if ($sel_rows != 0) {
+        while ($sel_row = mysqli_fetch_array($sel_result, MYSQLI_ASSOC)) {
+          print "
+            <div class='items'>
+              <div class='name'>
+          ";
+          $trans_no1 = $sel_row['trans_no'];
+          $select1 = "SELECT * FROM tbl_status LEFT JOIN tbl_order ON tbl_status.trans_no = tbl_order.trans_no WHERE tbl_status.trans_no=$trans_no1";
+          $sel_result1 = mysqli_query($con, $select1);
+          $sel_rows1 = mysqli_num_rows($sel_result1);
+          if ($sel_rows1 != 0) {
+            while ($sel_row1 = mysqli_fetch_array($sel_result1, MYSQLI_ASSOC)) {
+              $trans_status = $sel_row1['trans_status'];
+              $item_name = $sel_row1['item_name'];
+              $item_qty = $sel_row1['item_qty'];
+              $item_temp = $sel_row1['item_temp'];
+              $item_size = $sel_row1['item_size'];
 
-        <div class="status">
-          <div class="custom-select">
-            <select name="status" id="status" onchange="getComboA(this)">
-              <option value="confirm">CONFIRM</option>
-              <option value="ready">READY</option>
-              <option selected value="served">SERVED</option>
-            </select>
+              $ttl_query = "SELECT SUM(item_subtotal) AS total FROM tbl_order WHERE trans_no=$trans_no1;";
+              $ttl_result = mysqli_query($con, $ttl_query);
+              $ttl_row = mysqli_fetch_array($ttl_result, MYSQLI_ASSOC);
+              $total = $ttl_row['total'];
+              print "
+                <h2 class='item-name'>$item_name</h2>
+                <p>$item_qty x $item_temp $item_size</p>
+              ";
+            }
+          }
+          $username1 = $sel_row['username'];
+          $email1 = $sel_row['email'];
+          $date1 = $sel_row['trans_datetime'];
+          print "
+            </div>
+
+            <div class='status'>
+              <div class='custom-select'>
+                <select name='status' id='status' onchange='getComboReady(this, $trans_no1)'>
+                  <option value='Completed'>COMPLETE</option>
+                </select>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div class="details">
-        <h4>Username: Hiromi Garcia</h4>
-        <h4>Email: hiromi.garcia@depedparanaquecity.com</h4>
-        <h4>D and T : 11-06-2022 / 9:06 am</h4>
-      </div>
-
-      <div class="total">
-        <h2>Sub Total</h2>
-        <h2>60 PHP</h2>
-      </div>
-
-      <div class="items">
-        <div class="name">
-          <h2 class="item-name">Latte</h2>
-          <p>1x Cold</p>
-          <p>1x Medium</p>
-        </div>
-
-        <div class="status">
-          <div class="custom-select">
-            <select name="status" id="status" onchange="getComboB(this)" onclick="getValue(this)">
-              <option value="confirm">CONFIRM</option>
-              <option value="ready">READY</option>
-              <option selected value="served">SERVED</option>
-            </select>
+          <div class='details'>
+            <h4>Username: $username1</h4>
+            <h4>Email: $email1</h4>
+            <h4>D and T : $date1</h4>
           </div>
-        </div>
-      </div>
 
-      <div class="details">
-        <h4>Username: Shane Tecson</h4>
-        <h4>Email: shane.tecson@depedparanaquecity.com</h4>
-        <h4>D and T : 11-06-2022 / 9:20 am</h4>
-      </div>
-
-      <div class="total">
-        <h2>Sub Total</h2>
-        <h2>30 PHP</h2>
-      </div>
-    </div>
-
-    <div class="save">
-      <button>Save</button>
+          <div class='total'>
+            <h2>Total</h2>
+            <h2>PHP $total</h2>
+          </div>
+          ";
+        }
+      }
+      ?>
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>

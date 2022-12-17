@@ -109,7 +109,7 @@ if (isset($_GET['transaction'])) {
           $sel_rows1 = mysqli_num_rows($sel_result1);
           if ($sel_rows1 != 0) {
             while ($sel_row1 = mysqli_fetch_array($sel_result1, MYSQLI_ASSOC)) {
-              $trans_status = $sel_row1['trans_status'];
+              $trans_status = strtoupper($sel_row1['trans_status']);
               $item_name = $sel_row1['item_name'];
               $item_qty = $sel_row1['item_qty'];
               $item_temp = $sel_row1['item_temp'];
