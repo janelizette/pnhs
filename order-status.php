@@ -48,12 +48,13 @@ include("php/display.php");
     </div>
 
     <div class="back-home">
-      <a href="index.php"><img src="img/left.png" class="back-home-icon"> Home </a>
+      <a href="staff-admin.php"><img src="img/left.png" class="back-home-icon"> Home </a>
     </div>
 
     <div class="buttons">
       <button onclick="window.location.href='pending-orders.php'">Pending Orders</button>
       <button onclick="window.location.href='ready-orders.php'">Ready Orders</button>
+      <button onclick="window.location.href='preparing-orders.php'">Preparing Orders</button>
       <button onclick="window.location.href='completed-orders.php'">Completed Orders</button>
     </div>
 
