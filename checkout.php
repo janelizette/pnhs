@@ -59,10 +59,11 @@ if (isset($_GET['transaction'])) {
 <body>
   <!-- Search bar-->
   <div class="bar-div" id="bar-div">
-    <div class="bar">
-      <button class="back"><img src="img/back.png" class="back-icon" id="back"></button>
-      <input type="text" placeholder="Search this site" class="searchbar">
-    </div>
+    <form class="bar" method="post" action="search.php">
+      <button type="button" class="back"><img src="img/back.png" class="back-icon" id="back"></button>
+      <input type="text" placeholder="Search this site" class="searchbar" name="search">
+      <button type="submit" name="btn_search" class="back" style="position: absolute; right: 2.5%;"><img src="img/search.png" class="back-icon"></button>
+    </form>
   </div>
 
   <div class="header">
@@ -114,13 +115,15 @@ if (isset($_GET['transaction'])) {
               $item_qty = $sel_row1['item_qty'];
               $item_temp = $sel_row1['item_temp'];
               $item_size = $sel_row1['item_size'];
+              $item_subtotal = $sel_row1['item_subtotal'];
+              $item_prc = $item_subtotal/$item_qty;
 
               $ttl_query = "SELECT SUM(item_subtotal) AS total FROM tbl_order WHERE email = '$email' AND trans_no=$trans_no1;";
               $ttl_result = mysqli_query($con, $ttl_query);
               $ttl_row = mysqli_fetch_array($ttl_result, MYSQLI_ASSOC);
               $total = $ttl_row['total'];
 
-              print "<h2 class='item-name'>$item_name</h2>
+              print "<h2 class='item-name'>$item_name &emsp; PHP$item_prc</h2>
                      <p>$item_qty x $item_temp $item_size</p>";
             }
           }

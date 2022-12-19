@@ -6,37 +6,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles/options.css">
   <link rel="icon" href="img/pnhs.png">
-  <title>
-  	<?php
-  	if (isset($_GET['category'])) {
-  		$title = $_GET['category'];
-  		$item_cat = $title;
-		print ucwords($title);
-	}else{
-		header("location:menu.php");
-	}
-	?>
-  </title>
+  <title>Search</title>
 </head>
 
 <?php
 include("php/display.php");
 include("php/displayWelcome.php");
 
-if (isset($_GET['category'])) {
-	$category = $_GET['category'];
-	$title = $category;
+if (isset($_POST['btn_search'])) {
+	$search = $_POST['search'];
+}else{
+	$search = "";
 }
 ?>
 
 <body>
   <!-- Search bar-->
   <div class="bar-div" id="bar-div">
-    <form class="bar" method="post" action="search.php">
-      <button type="button" class="back"><img src="img/back.png" class="back-icon" id="back"></button>
-      <input type="text" placeholder="Search this site" class="searchbar" name="search">
-      <button type="submit" name="btn_search" class="back" style="position: absolute; right: 2.5%;"><img src="img/search.png" class="back-icon"></button>
-    </form>
+    <div class="bar">
+      <button class="back"><img src="img/back.png" class="back-icon" id="back"></button>
+      <input type="text" placeholder="Search this site" class="searchbar">
+    </div>
   </div>
 
   <div class="header">
@@ -95,7 +85,7 @@ if (isset($_GET['category'])) {
 
     <div class="options">
       <?php
-      $query = "SELECT * FROM tbl_item WHERE item_cat = '$item_cat';";
+      $query = "SELECT * FROM tbl_item WHERE item_name LIKE '%$search%';";
       $result = mysqli_query($con, $query);
       $title_rows = mysqli_num_rows($result);
       if ($title_rows != 0) {

@@ -17,10 +17,11 @@ include("php/displayWelcome.php");
 <body>
   <!-- Search bar-->
   <div class="bar-div" id="bar-div">
-    <div class="bar">
-      <button class="back"><img src="img/back.png" class="back-icon" id="back"></button>
-      <input type="text" placeholder="Search this site" class="searchbar">
-    </div>
+    <form class="bar" method="post" action="search.php">
+      <button type="button" class="back"><img src="img/back.png" class="back-icon" id="back"></button>
+      <input type="text" placeholder="Search this site" class="searchbar" name="search">
+      <button type="submit" name="btn_search" class="back" style="position: absolute; right: 2.5%;"><img src="img/search.png" class="back-icon"></button>
+    </form>
   </div>
 
   <div class="header">
@@ -57,7 +58,7 @@ include("php/displayWelcome.php");
     </div>
 
     <div class="cart">
-      <h1 class="title">Pending Orders</h1>
+      <h1 class="title">Completed Orders</h1>
 
       <?php
       $select = "SELECT * FROM tbl_status LEFT JOIN tbl_user ON tbl_status.email = tbl_user.email WHERE trans_status = 'Completed'";
